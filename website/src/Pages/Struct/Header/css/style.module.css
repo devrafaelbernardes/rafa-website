@@ -1,0 +1,11 @@
+.header, .logo, .menu{
+    padding: 0;
+}
+.logo, .menu > *{
+    justify-content: center;
+}
+
+.logo > *{
+    width: 100%;
+    max-width: 400px;
+}

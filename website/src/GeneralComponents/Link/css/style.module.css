@@ -1,0 +1,11 @@
+.root{
+    padding: 0;
+}
+.link{
+    color: var(--color-white);
+}
+.link:hover{
+    outline: 0;
+    text-decoration: none;
+    color: var(--color-secondary);
+}

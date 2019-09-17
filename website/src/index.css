@@ -1,0 +1,44 @@
+*{
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+html, body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.row{
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+:root {
+  --color-primary : #212529; 
+  --color-secondary : #ff0; 
+  --color-black : #000;
+  --color-disabled : #aeb5bb;
+  --color-white : #fff;
+  --color-yellow : #e6a914;
+  --color-red : #dc3030;
+}
+
+@font-face {
+  font-family: NEOTERIC;
+  src: url("//db.onlinewebfonts.com/t/b359a7e2080fb171a4befe467e647482.eot");
+  src: url("//db.onlinewebfonts.com/t/b359a7e2080fb171a4befe467e647482.eot?#iefix") format("embedded-opentype"),
+  url("//db.onlinewebfonts.com/t/b359a7e2080fb171a4befe467e647482.woff2") format("woff2"),
+  url("//db.onlinewebfonts.com/t/b359a7e2080fb171a4befe467e647482.woff") format("woff"),
+  url("//db.onlinewebfonts.com/t/b359a7e2080fb171a4befe467e647482.ttf") format("truetype"),
+  url("//db.onlinewebfonts.com/t/b359a7e2080fb171a4befe467e647482.svg#NEOTERIC") format("svg");
+}
