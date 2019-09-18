@@ -5,6 +5,7 @@ import { Item, Title } from './Components';
 import { FANTASY_NAME, DEVELOPER, CONTACT_DEVELOPER, LOCAL, CNPJ, PHONE, CONTACT_FACEBOOK, CONTACT_INSTAGRAM } from '../../../StaticContent/InfoSite';
 import { Link, FacebookIcon, InstagramIcon } from '../../../GeneralComponents';
 import Texts from '../../../StaticContent/Texts';
+import { DashboardURL } from '../../../Routers/URLs';
 
 function Footer(){
     return (
@@ -36,6 +37,14 @@ function Footer(){
                         <Title>Instagram</Title>    
                     </Row>
                 </div>
+            </Row>
+            <Row className={styles.infoCompany}>
+                <Link
+                    className={styles.buttonDashboard}
+                    link={DashboardURL().REDIRECT.BASE}
+                >
+                    { Texts.PRIVATE_AREA }
+                </Link>
             </Row>
             <Row className={styles.infoCompany}>
                 <Row className={styles.upperText}>

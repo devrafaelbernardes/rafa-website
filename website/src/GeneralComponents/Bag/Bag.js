@@ -35,6 +35,7 @@ function Bag({ image, title, total, descount, price_installments, installments, 
             }
             <Row className={styles.footer}>
                 <Link
+                    isLink
                     link={link}
                     className={styles.button}
                 >

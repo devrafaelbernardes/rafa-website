@@ -1,0 +1,15 @@
+.root, .spinner, .text{
+    justify-content: center;
+}
+.root{
+    padding: 10px 0;
+    font-size: 20px;
+    color: black;
+}
+.spinner{
+    padding: 0;
+}
+
+.text{
+    padding: 0;
+}

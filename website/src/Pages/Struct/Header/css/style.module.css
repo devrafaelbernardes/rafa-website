@@ -1,3 +1,9 @@
+.logo{
+    background: url(../../../../Assets/Images/bolinhas.png) 100% 100%;
+}
+.menu *{
+    font-size: 20px;
+}
 .header, .logo, .menu{
     padding: 0;
 }

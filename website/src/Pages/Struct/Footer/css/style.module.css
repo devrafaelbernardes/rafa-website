@@ -25,3 +25,19 @@
 .icons{
     font-size: 30px;
 }
+
+.buttonDashboard{
+    color: #444 !important;
+    padding: 6px 12px;
+    background: white;
+    border: 1px solid #f7f7f7;
+    border-radius: 5px;
+    font-size: 14px;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    font-family: calibri;
+}
+.buttonDashboard:hover{
+    background: #ccc;
+}

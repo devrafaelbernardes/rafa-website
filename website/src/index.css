@@ -25,6 +25,7 @@ code {
 
 :root {
   --color-primary : #212529; 
+  --color-primary-light : #212529ee; 
   --color-secondary : #ff0; 
   --color-black : #000;
   --color-disabled : #aeb5bb;

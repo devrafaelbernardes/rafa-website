@@ -1,9 +1,13 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faSpinner } from '@fortawesome/free-solid-svg-icons'
 
 export const UserIcon = (props) => (
     <Icon icon={faUser} {...props} />
+);
+
+export const LoadingIcon = (props) => (
+    <Icon icon={faSpinner} {...props} />
 );
 
 export const InstagramIcon = (props) => (
