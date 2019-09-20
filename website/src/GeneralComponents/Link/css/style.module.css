@@ -4,8 +4,8 @@
 .link{
     color: var(--color-white);
 }
-.link:hover{
+.link:hover, .activeLink{
     outline: 0;
     text-decoration: none;
-    color: var(--color-secondary);
+    color: var(--color-secondary) !important;
 }

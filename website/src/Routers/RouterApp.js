@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import { Switch } from 'react-router-dom';
+import { Switch, Redirect } from 'react-router-dom';
 import ProtectedRoute from './ProtectedRoute';
 import { ContextApp } from '../Contexts';
-import { Home, Media, About, Error, Dashboard } from '../Pages';
-import { HomeURL, MediaURL, AboutURL, DashboardURL } from './URLs';
+import { Home, Media, About, Error, Dashboard, Login } from '../Pages';
+import { HomeURL, MediaURL, AboutURL, DashboardURL, LoginURL } from './URLs';
 
 function RouterApp() {
     var { authenticated } = useContext(ContextApp);
@@ -29,6 +29,12 @@ function RouterApp() {
                 authenticated={authenticated}
                 componentAuthenticated={props => <About {...props} />}
                 componentNotAuthenticated={props => <About {...props} />}
+            />
+            <ProtectedRoute
+                path={LoginURL().ROUTER.BASE}
+                authenticated={authenticated}
+                componentAuthenticated={props => <Redirect to={HomeURL().REDIRECT.BASE} />}
+                componentNotAuthenticated={props => <Login {...props} />}
             />
             <ProtectedRoute
                 path={DashboardURL().ROUTER.BASE}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Row } from 'react-bootstrap';
 import styles from './css/style.module.css';
 import { Item, Title } from './Components';
@@ -6,8 +6,11 @@ import { FANTASY_NAME, DEVELOPER, CONTACT_DEVELOPER, LOCAL, CNPJ, PHONE, CONTACT
 import { Link, FacebookIcon, InstagramIcon } from '../../../GeneralComponents';
 import Texts from '../../../StaticContent/Texts';
 import { DashboardURL } from '../../../Routers/URLs';
+import { ContextApp } from '../../../Contexts';
 
 function Footer(){
+    var { authenticated } = useContext(ContextApp);
+
     return (
         <Row className={styles.footer}>
             <Row className={styles.upperText + " " + styles.network}>
@@ -38,14 +41,17 @@ function Footer(){
                     </Row>
                 </div>
             </Row>
-            <Row className={styles.infoCompany}>
-                <Link
-                    className={styles.buttonDashboard}
-                    link={DashboardURL().REDIRECT.BASE}
-                >
-                    { Texts.PRIVATE_AREA }
-                </Link>
-            </Row>
+            {
+                !authenticated &&
+                <Row className={styles.infoCompany}>
+                    <Link
+                        className={styles.buttonDashboard}
+                        link={DashboardURL().REDIRECT.BASE}
+                    >
+                        { Texts.PRIVATE_AREA }
+                    </Link>
+                </Row>
+            }
             <Row className={styles.infoCompany}>
                 <Row className={styles.upperText}>
                     <Item>{ FANTASY_NAME }</Item>

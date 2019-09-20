@@ -61,7 +61,7 @@ function ListBags({ reloading }){
                             }
                         )
                     ) : (
-                        Texts.NO_BAGS
+                        <Row className={styles.no_item}>{Texts.NO_BAGS}</Row>
                     )
                 )
             }

@@ -3,15 +3,26 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { ContextApp } from './Contexts'
 import { Header, Body, Footer } from './Pages/Struct';
 import { RouterApp } from './Routers';
-import { isAuthenticated } from './Storage/Session';
+import { isAuthenticated, setToken } from './Storage/Session';
 import { ApolloProvider } from 'react-apollo';
 import { clientGraphql } from './Rest/Functions';
 
 function App() {
-  var [authenticated] = useState(isAuthenticated());
+  var [user, setUser] = useState(null);
+  var [authenticated, setAuthenticated] = useState(isAuthenticated());
+  
+  const doLogin = async(user, token) => {
+    if(user && token){
+        await setUser(user);
+        await setToken(token);
+        await setAuthenticated(true);
+    }
+  }
 
   var valueContext = {
-    authenticated
+    authenticated,
+    user,
+    doLogin
   };
 
   return (

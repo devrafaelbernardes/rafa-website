@@ -1,18 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styles from './css/style.module.css';
 import { Row } from 'react-bootstrap';
 import Texts from '../../../StaticContent/Texts';
 import { Input, Button } from '../../';
 import { Form } from '../';
+import { validateLogin } from '../../../Rest/Functions';
+import { ContextApp } from '../../../Contexts';
+import { TablesAPI } from '../../../Rest/TablesAPI';
 
 function FormLogin({ textHeader }){
     var [inputs, setInputs] = useState({
         email : '',
-        password : ''
+        senha : ''
     });
 
-    const submit = () => {
-        window.alert("ENVIADO");
+    var { doLogin } = useContext(ContextApp);
+
+    const submit = async() => {
+        var { email, senha } = inputs;
+
+        try {
+            await validateLogin(email, senha)
+                .then(
+                    response => {
+                        console.log(response);
+                        
+                        if(response && response.data && response.data.response && doLogin){
+                            var { user, token } = response.data.response;
+                            token = token[TablesAPI.TOKEN_ACCESS.TOKEN];
+                            doLogin(user, token);
+                        }
+                    }
+                )
+                .catch(e => { console.log(e);
+                 });
+        } catch (error) {}
     }
 
     const changeInput = (e) => {
@@ -33,7 +55,8 @@ function FormLogin({ textHeader }){
                 </Row>
                 <Row>
                     <Input 
-                        name="password"
+                        name="senha"
+                        type="password"
                         placeholder={Texts.PASSWORD}
                         onChange={changeInput}
                     />

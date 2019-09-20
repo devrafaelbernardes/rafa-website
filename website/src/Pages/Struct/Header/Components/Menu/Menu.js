@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Row } from 'react-bootstrap';
 import styles from './css/style.module.css';
 import { LinkMenu } from '../';
 import Texts from '../../../../../StaticContent/Texts';
-import { HomeURL, MediaURL, AboutURL } from '../../../../../Routers/URLs';
+import { HomeURL, MediaURL, AboutURL, DashboardURL } from '../../../../../Routers/URLs';
 import { URL_STORE, URL_CONTACT, URL_WORKSHOP } from '../../../../../StaticContent/ExternalURLs';
+import { ContextApp } from '../../../../../Contexts';
 
 function Menu(){
+    var { authenticated } = useContext(ContextApp);
     return (
         <Row className={styles.menu}>
             <LinkMenu 
@@ -37,6 +39,13 @@ function Menu(){
                 link={URL_WORKSHOP}
                 text={Texts.WORKSHOP}
             /> 
+            {
+                authenticated &&
+                <LinkMenu 
+                    link={DashboardURL().REDIRECT.BASE}
+                    text={Texts.PRIVATE_AREA}
+                /> 
+            }
         </Row>
     );
 }

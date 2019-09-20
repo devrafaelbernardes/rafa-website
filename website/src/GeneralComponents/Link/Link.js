@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link as DefaultLink } from 'react-router-dom';
+import { Link as DefaultLink, NavLink } from 'react-router-dom';
 import styles from './css/style.module.css';
 import { ErrorURL } from '../../Routers/URLs/ErrorURL';
 
-function Link({ exact, link, isLink, children, className }){
-    exact = ""+(exact === true);
+function Link({ exact, link, isNavLink, isLink, children, className, activeClassName }){
+    exact = (exact === true);
     isLink = isLink === true;
     link = link ? link : ErrorURL().REDIRECT.BASE;
 
@@ -19,13 +19,24 @@ function Link({ exact, link, isLink, children, className }){
                         {children}
                     </a>       
                 ) : (
-                    <DefaultLink 
-                        exact={exact}
-                        className={styles.link + (className ? " " + className : "")}
-                        to={link}
-                    >
-                        {children}
-                    </DefaultLink>
+                    isNavLink ? (
+                        <NavLink 
+                            exact={exact}
+                            className={styles.link + (className ? " " + className : "")}
+                            activeClassName={styles.activeLink + (activeClassName ? " " + activeClassName : "")}
+                            to={link}
+                        >
+                            {children}
+                        </NavLink>
+                    ) : (
+                        <DefaultLink 
+                            exact={""+exact}
+                            className={styles.link + (className ? " " + className : "")}
+                            to={link}
+                        >
+                            {children}
+                        </DefaultLink>
+                    )
                 )
             }
         </div>

@@ -51,7 +51,7 @@ function ListMedia({ reloading }){
                             }
                         )
                     ) : (
-                        Texts.NO_MEDIA
+                        <Row className={styles.no_item}>{Texts.NO_MEDIA}</Row>
                     )
                 )
             }
