@@ -1,0 +1,47 @@
+.footer{
+    padding: 20px 10px 25px;
+    background: 0;
+}
+.footer > *, .infoCompany > *{
+    justify-content: center;
+}
+.alignRight{
+    justify-content: flex-end;
+}
+
+.upperText{
+    text-transform: uppercase;
+}
+.copyright{
+    font-size: 12px;
+}
+.infoCompany{
+    padding: 10px 0;
+}
+.network > *{
+    padding: 0 5px;
+}
+.icons{
+    font-size: 30px;
+}
+
+.buttonDashboard{
+    color: #444 !important;
+    padding: 6px 12px;
+    background: white;
+    border: 1px solid #f7f7f7;
+    border-radius: 5px;
+    font-size: 14px;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    font-family: calibri;
+}
+.buttonDashboard:hover{
+    background: #ccc;
+}
+
+.linkIcon, .linkIcon > *{
+    justify-content: center;
+    align-items: center;
+}

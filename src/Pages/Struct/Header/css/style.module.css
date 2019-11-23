@@ -1,0 +1,18 @@
+.header{
+    padding: 10px;
+    align-items: center;
+}
+.menu *{
+    font-size: 20px;
+}
+.logo, .menu{
+    padding: 0;
+}
+.header, .logo, .menu > *{
+    justify-content: center;
+}
+
+.logo > *{
+    width: 100%;
+    max-width: 180px;
+}

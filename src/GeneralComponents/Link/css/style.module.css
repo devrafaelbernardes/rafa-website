@@ -1,0 +1,11 @@
+.root{
+    padding: 0;
+}
+.link{
+    color: var(--color-black);
+}
+.link:hover, .activeLink{
+    outline: 0;
+    text-decoration: none;
+    color: var(--color-primary) !important;
+}

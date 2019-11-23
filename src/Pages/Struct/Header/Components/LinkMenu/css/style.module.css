@@ -1,0 +1,14 @@
+.root{
+    padding: 0 15px;
+    text-transform: uppercase;
+    font-family: NEOTERIC;
+}
+.link{
+    color: var(--color-black);
+}
+.activeLink, .link:hover{
+    outline: 0;
+    text-decoration: none;
+    color: var(--color-yellow);
+    font-weight: bold;
+}

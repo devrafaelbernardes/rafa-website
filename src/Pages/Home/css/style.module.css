@@ -1,0 +1,23 @@
+.home{
+    padding: 0;
+    padding-bottom: 20px;
+}
+.footer{
+    padding: 30px 5px 0;
+}
+.footer > *{
+    justify-content: center;
+}
+.othersModels, .clickHere{
+    padding: 0;
+    font-size: 23px;
+    font-family: NEOTERIC;
+    text-transform: uppercase;
+}
+.othersModels{
+    color: black;
+}
+.clickHere{
+    color: red;
+    font-weight: bold;
+}
