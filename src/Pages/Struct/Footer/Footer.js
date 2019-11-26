@@ -51,17 +51,6 @@ function Footer(){
                     </Row>
                 </div>
             </Row>
-            {
-                !authenticated &&
-                <Row className={styles.infoCompany}>
-                    <Link
-                        className={styles.buttonDashboard}
-                        link={DashboardURL().REDIRECT.BASE}
-                    >
-                        { Texts.PRIVATE_AREA }
-                    </Link>
-                </Row>
-            }
             <Row className={styles.infoCompany}>
                 <Row className={styles.upperText}>
                     <Item>{ FANTASY_NAME } | {Texts.CNPJ} { CNPJ }</Item>
@@ -73,6 +62,17 @@ function Footer(){
                     <Item>{ LOCAL }</Item>
                 </Row>
             </Row>
+            {
+                !authenticated &&
+                <Row className={styles.infoCompany}>
+                    <Link
+                        className={styles.buttonDashboard}
+                        link={DashboardURL().REDIRECT.BASE}
+                    >
+                        { Texts.PRIVATE_AREA }
+                    </Link>
+                </Row>
+            }
             <Row className={styles.copyright}>
                 { Texts.COPYRIGHT }
             </Row>

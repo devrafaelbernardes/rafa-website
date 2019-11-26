@@ -1,9 +1,5 @@
 .menu{
     padding: 0;
-    border-bottom: 1px solid;
-    border-right: 1px solid;
-    border-color: #bbb;
-    background: #ebebeb;
 }
 
 .header{
@@ -25,12 +21,13 @@
 }
 
 .links{
-    padding: 5px !important;
+    padding: 5px;
+    padding-left: 15px;
     color : black;
     font-family: calibri;
-    border-right: 2px solid transparent;
+    border-left: 2px solid transparent;
 }
 .links:hover, .activeLinks{
-    color : black !important;
-    border-color: #0009 !important;
+    color : var(--color-yellow) !important;
+    border-color: var(--color-yellow) !important;
 }

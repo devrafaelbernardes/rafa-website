@@ -24,24 +24,30 @@ function Bag({ image, title, total, descount, price_installments, installments, 
                     </del>
                 </Row>
             }
-            <Row className={styles.total}>
-                {total}
-            </Row>
+            {
+                total &&
+                <Row className={styles.total}>
+                    {total}
+                </Row>
+            }
             {
                 price_installments && installments &&
                 <Row className={styles.installments}>
                     {Texts.OR} {installments} x {price_installments}
                 </Row>
             }
-            <Row className={styles.footer}>
-                <Link
-                    isLink
-                    link={link}
-                    className={styles.button}
-                >
-                    {Texts.MORE_DETAILS}
-                </Link>
-            </Row>
+            {
+                link &&
+                <Row className={styles.footer}>
+                    <Link
+                        isLink
+                        link={link}
+                        className={styles.button}
+                    >
+                        {Texts.MORE_DETAILS}
+                    </Link>
+                </Row>
+            }
         </Row>
     );
 }

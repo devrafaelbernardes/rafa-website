@@ -1,5 +1,6 @@
 .dashboard{
     margin: 0;
+    padding: 30px 10px;
 }
 .dashboard > *{
     padding: 0;

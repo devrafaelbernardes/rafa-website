@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './css/style.module.css';
 import { Row, Image } from 'react-bootstrap';
 import Texts from '../../../StaticContent/Texts';
-import { Input, Button } from '../..';
+import { Input, Button, InputFile } from '../..';
 import { Form } from '..';
 import { addMedia } from '../../../Rest/Functions';
 
@@ -14,6 +14,17 @@ function FormAddMedia({ textHeader }){
     var [imagePreview, setImagePreview] = useState(null);
     var [result, setResult] = useState('');
     var [/*media*/ , setMedia] = useState(null);
+
+    useEffect(() => {
+        if(result !== ''){
+            const timeout = setTimeout(() => {
+                setResult('');
+            }, 1500);
+            return () => {
+                clearTimeout(timeout);
+            };
+        }
+    }, [result]);
 
     const submit = async() => {
         var { link } = inputs;
@@ -39,11 +50,13 @@ function FormAddMedia({ textHeader }){
     }
 
     const changeInputImage = (e) => {
-        var image = e.target.files[0];
-        if(image){
-            setImagePreview(URL.createObjectURL(image));
-            setImage(image);
-        }
+        try {
+            var image = e.target.files[0];
+            if(image){
+                setImagePreview(URL.createObjectURL(image));
+                setImage(image);
+            }    
+        } catch (error) {}
     }
 
     const setResultForm = (result) => {
@@ -67,11 +80,12 @@ function FormAddMedia({ textHeader }){
                     />
                 </Row>
                 <Row>
-                    <Input 
+                    <InputFile
                         name="image"
-                        type="file"
                         onChange={changeInputImage}
-                    />
+                    >
+                        { Texts.ADD_IMAGE }
+                    </InputFile>
                 </Row>
                 {
                     result !== '' &&
@@ -83,7 +97,7 @@ function FormAddMedia({ textHeader }){
                     <Button
                         onClick={() => submit()}
                     >
-                        { Texts.ENTER }
+                        { Texts.SAVE }
                     </Button>
                 </Row>
             </Row>

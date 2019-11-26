@@ -1,0 +1,11 @@
+.root {
+  outline: 0;
+}
+
+.divInput {
+  display: none;
+}
+
+.disabled {
+  background: #ddd !important;
+}

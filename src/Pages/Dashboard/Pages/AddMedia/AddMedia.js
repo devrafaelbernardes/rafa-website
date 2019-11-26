@@ -1,24 +1,24 @@
 import React from 'react';
 import { Row } from 'react-bootstrap';
 import styles from './css/style.module.css';
-import { Header } from '../../Components';
 import Texts from '../../../../StaticContent/Texts';
-import { FormUpdatePositionBags } from '../../../../GeneralComponents';
+import { Header } from '../../Components';
+import { FormAddMedia } from '../../../../GeneralComponents';
 
-function Bags(){
+function AddMedia(){
     return (
-        <Row className={styles.bags}>
+        <Row className={styles.addMedia}>
             <Row>
                 <Header
-                    title={ Texts.BAGS }
+                    title={ Texts.ADD_MEDIA }
                 />
             </Row>
             <Row className={styles.body}>
-                <FormUpdatePositionBags />
+                <FormAddMedia />
             </Row>
         </Row>
     );
 }
 
-export { Bags };
-export default Bags;
+export { AddMedia };
+export default AddMedia;

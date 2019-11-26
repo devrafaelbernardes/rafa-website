@@ -3,7 +3,6 @@ import { Row } from 'react-bootstrap';
 import styles from './css/style.module.css';
 import Texts from '../../../../StaticContent/Texts';
 import { Header } from '../../Components';
-import { FormAddMedia } from '../../../../GeneralComponents';
 
 function Media(){
     return (
@@ -14,9 +13,7 @@ function Media(){
                 />
             </Row>
             <Row className={styles.body}>
-                <FormAddMedia 
-                    textHeader="Adicionar Media"
-                />
+                {Texts.MEDIA}
             </Row>
         </Row>
     );

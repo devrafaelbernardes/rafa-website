@@ -95,6 +95,18 @@ export async function listBags(){
             }
         }
     }`);
+} 
+
+export async function listBagsToEditPosition(){
+    return await query(`{
+        response : bags {
+            ${TablesAPI.BAG.NAME}
+            ${TablesAPI.BAG.LINK}
+            first_image {
+                ${TablesAPI.IMAGE.LOCATION}
+            }
+        }
+    }`);
 }
 
 export async function listMedias(){

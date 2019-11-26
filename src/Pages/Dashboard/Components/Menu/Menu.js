@@ -14,38 +14,64 @@ function Menu(){
             </Row>
             <Row className={styles.body}>
                 <Row className={styles.divLinks}>
-                    <Link
+                    <LinkMenu 
                         exact
-                        isNavLink
-                        link={REDIRECT.BASE}
-                        className={styles.links}
-                        activeClassName={styles.activeLinks}
-                    >
-                        { Texts.HOME }
-                    </Link>
-                </Row>
-                <Row className={styles.divLinks}>
-                    <Link 
-                        isNavLink
                         link={REDIRECT.BAG}
-                        className={styles.links}
-                        activeClassName={styles.activeLinks}
                     >
                         { Texts.BAGS }
-                    </Link>
+                    </LinkMenu>
                 </Row>
                 <Row className={styles.divLinks}>
-                    <Link 
-                        isNavLink
+                    <LinkMenu 
                         link={REDIRECT.MEDIA}
-                        className={styles.links}
-                        activeClassName={styles.activeLinks}
                     >
                         { Texts.MEDIA }
-                    </Link>
+                    </LinkMenu>
+                </Row>
+                <Row className={styles.divLinks}>
+                    <LinkMenu 
+                        link={REDIRECT.ADD_BAG}
+                    >
+                        { Texts.ADD_BAG }
+                    </LinkMenu>
+                </Row>
+                <Row className={styles.divLinks}>
+                    <LinkMenu 
+                        link={REDIRECT.ADD_MEDIA}
+                    >
+                        { Texts.ADD_MEDIA }
+                    </LinkMenu>
+                </Row>
+                <Row className={styles.divLinks}>
+                    <LinkMenu 
+                        link={REDIRECT.EDIT_BAG('')}
+                    >
+                        { Texts.EDIT_BAG }
+                    </LinkMenu>
+                </Row>
+                <Row className={styles.divLinks}>
+                    <LinkMenu 
+                        link={REDIRECT.EDIT_MEDIA('')}
+                    >
+                        { Texts.EDIT_MEDIA }
+                    </LinkMenu>
                 </Row>
             </Row>
         </Row>
+    );
+}
+
+function LinkMenu({ children, link, exact }){
+    return (
+        <Link 
+            exact={exact}
+            isNavLink
+            link={link}
+            className={styles.links}
+            activeClassName={styles.activeLinks}
+        >
+            { children }
+        </Link>
     );
 }
 

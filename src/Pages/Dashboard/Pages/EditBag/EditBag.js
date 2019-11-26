@@ -3,22 +3,21 @@ import { Row } from 'react-bootstrap';
 import styles from './css/style.module.css';
 import { Header } from '../../Components';
 import Texts from '../../../../StaticContent/Texts';
-import { FormUpdatePositionBags } from '../../../../GeneralComponents';
 
-function Bags(){
+function EditBag(){
     return (
-        <Row className={styles.bags}>
+        <Row className={styles.editBag}>
             <Row>
                 <Header
-                    title={ Texts.BAGS }
+                    title={ Texts.EDIT_BAG }
                 />
             </Row>
             <Row className={styles.body}>
-                <FormUpdatePositionBags />
+                { Texts.BAGS }
             </Row>
         </Row>
     );
 }
 
-export { Bags };
-export default Bags;
+export { EditBag };
+export default EditBag;
