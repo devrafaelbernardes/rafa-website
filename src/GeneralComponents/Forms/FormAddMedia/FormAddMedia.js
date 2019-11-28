@@ -3,7 +3,7 @@ import styles from './css/style.module.css';
 import { Row, Image } from 'react-bootstrap';
 import Texts from '../../../StaticContent/Texts';
 import { Input, Button, InputFile } from '../..';
-import { Form } from '..';
+import { Form, Result } from '..';
 import { addMedia } from '../../../Rest/Functions';
 
 function FormAddMedia({ textHeader }){
@@ -89,9 +89,9 @@ function FormAddMedia({ textHeader }){
                 </Row>
                 {
                     result !== '' &&
-                    <Row>
-                        { result === true ? ("SUCESSO") : ("ERRO AO ADICIONAR") }
-                    </Row>
+                    <Result result={result}>
+                        {result === true ? Texts.SUCCESS : Texts.ANY_ERROR }
+                    </Result>
                 }
                 <Row>
                     <Button

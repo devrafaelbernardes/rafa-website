@@ -3,6 +3,13 @@ import { SITE_NAME } from '../InfoSite';
 const TextPortuguese = {
     HOME : 'Início',
     ERROR : 'Erro',
+    NAME : 'Nome',
+    BAG_NAME : 'Nome da bolsa',
+    TOTAL_PRICE : 'Preço total',
+    DISCOUNT_PRICE : 'Preço com desconto',
+    INSTALLMENTS_QUANTITY : 'Quantidade de parcelas',
+    INSTALLMENTS_PRICE : 'Preço das parcelas',
+    LINK_BAG_ON_WEBSITE : 'Link da bolsa no site',
     ENTER : 'Entrar',
     SAVE : 'Salvar',
     BACK : 'Voltar',
@@ -15,6 +22,7 @@ const TextPortuguese = {
     STORE : 'Loja',
     MEDIA : 'Mídias',
     ABOUT : 'Sobre',
+    ADD : 'Adicionar',
     ADD_BAG : 'Adicionar bolsa',
     ADD_IMAGE : 'Adicionar imagem',
     ADD_MEDIA : 'Adicionar mídia',
@@ -41,6 +49,9 @@ const TextPortuguese = {
     UNIQUE_DESIGN_DESCRIPTION : '"Buscamos sempre ter um "design" único e atemporal, utilizando materiais descartados pela indústria, o que torna o produto único e exclusivo! Cada bolsa é idealizada e confeccionada pelo próprio designer da marca em um processo totalmente artesanal."',
     TO_PURCHASE_THESE_AND_OTHER_MODELS : 'Para adquirir estes e outros modelos',
     CLICK_HERE : 'Clique aqui',
+    SUCCESS : 'Sucesso!',
+    ANY_ERROR : 'Algum erro ocorreu, tente novamente mais tarde!',
+    DESCRIPTION_FORM_UPDATE_POSITION_BAGS : 'Clique na bolsa e arraste para onde quer colocá-la.',
 };
 
 export { TextPortuguese };

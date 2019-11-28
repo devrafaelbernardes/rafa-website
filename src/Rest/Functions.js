@@ -102,6 +102,7 @@ export async function listBagsToEditPosition(){
         response : bags {
             ${TablesAPI.BAG.NAME}
             ${TablesAPI.BAG.LINK}
+            ${TablesAPI.BAG.CODE}
             first_image {
                 ${TablesAPI.IMAGE.LOCATION}
             }
@@ -142,6 +143,17 @@ export async function validateLogin(login, password){
     return await mutation(query, {
         login : login,
         password : password
+    })
+}
+
+export async function updatePositionBag(bags){ 
+    var query = `mutation MutationUpdatePositionBags($input : InputUpdatePositionBags){
+        response : updatePositionBags(input: $input)
+    }
+    `;
+    return await mutation(query, {
+        bags : bags,
+        token : getToken()
     })
 }
 

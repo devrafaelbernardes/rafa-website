@@ -11,6 +11,7 @@ function Bags(){
             <Row>
                 <Header
                     title={ Texts.BAGS }
+                    subtitle={ Texts.DESCRIPTION_FORM_UPDATE_POSITION_BAGS }
                 />
             </Row>
             <Row className={styles.body}>

@@ -3,8 +3,8 @@ import styles from './css/style.module.css';
 import { Row, Col } from 'react-bootstrap';
 import Texts from '../../../StaticContent/Texts';
 import { Button, LoadingComponent, Bag as DefaultBag } from '../..';
-import { Form } from '..';
-import { listBagsToEditPosition } from '../../../Rest/Functions';
+import { Form, Result } from '..';
+import { listBagsToEditPosition, updatePositionBag } from '../../../Rest/Functions';
 import { TablesAPI } from '../../../Rest/TablesAPI';
 import { DndProvider, useDrag, useDrop } from 'react-dnd'
 import HTML5Backend from 'react-dnd-html5-backend'
@@ -13,9 +13,9 @@ function FormUpdatePositionBags({ textHeader }) {
     var [bags, setBags] = useState([]);
     var [result, setResult] = useState('');
     var [loading, setLoading] = useState(true);
-    let IS_MOUNTED = false;
+    
     useEffect(() => {
-        IS_MOUNTED = true;
+        let IS_MOUNTED = true;
         try {
             listBagsToEditPosition()
                 .then(async(response) => {
@@ -40,10 +40,6 @@ function FormUpdatePositionBags({ textHeader }) {
     }, []);
 
     useEffect(() => {
-        console.log("ALTEROU")
-    }, [bags]);
-
-    useEffect(() => {
         if (result !== '') {
             const timeout = setTimeout(() => {
                 setResult('');
@@ -58,7 +54,11 @@ function FormUpdatePositionBags({ textHeader }) {
         var OKEY = false;
 
         try {
-
+            let listBags = await bags.map((bag, i) => ({ pos : i, code : bag[TablesAPI.BAG.CODE] }));
+            await updatePositionBag(listBags)
+                .then(response => {
+                    OKEY = response && response.data && response.data.response;
+                })
         } catch (error) { }
 
         await setResultForm(OKEY);
@@ -69,19 +69,17 @@ function FormUpdatePositionBags({ textHeader }) {
     }
 
     const moveBag = async (currentPos, newPos) => {
-        await setLoading(true);
-        console.log(currentPos, newPos);
-        
-        if(newPos >= 0 && newPos < bags.length){
-            console.log(bags);
-            let list = bags.slice();
-            let currentElement = await list.splice(currentPos)[0];
-            await list.splice(newPos, 0, currentElement);
-            console.log(list);
-            
-            await setBags(list);
+        if(currentPos !== newPos){
+            await setLoading(true);
+            if(newPos >= 0 && newPos < bags.length){
+                let list = bags;
+                let currentElement = bags[currentPos];
+                await list.splice(currentPos, 1);//REMOVE O ELEMENTO DA POSIÇÃO ANTIGA
+                await list.splice(newPos, 0, currentElement); //ADICIONA O ELEMENTO NA NOVA POSIÇÃO
+                await setBags(list);
+            }
+            await setLoading(false);
         }
-        await setLoading(false);
     }    
 
     return (
@@ -90,6 +88,21 @@ function FormUpdatePositionBags({ textHeader }) {
         >
             <Row className={styles.root}>
                 <LoadingComponent loading={loading}>
+                    <Row className={styles.header}>
+                        {
+                            result !== '' &&
+                            <Result result={result}>
+                                {result === true ? Texts.SUCCESS : Texts.ANY_ERROR }
+                            </Result>
+                        }
+                        <Row>
+                            <Button
+                                onClick={() => submit()}
+                            >
+                                {Texts.SAVE}
+                            </Button>
+                        </Row>
+                    </Row>
                     <Row>
                         {
                             bags && bags.length > 0 ? (
@@ -98,7 +111,7 @@ function FormUpdatePositionBags({ textHeader }) {
                                         bags.map((bag, i) => {
                                             const image = bag && bag.first_image && bag.first_image[TablesAPI.IMAGE.LOCATION] ? bag.first_image[TablesAPI.IMAGE.LOCATION] : null;
                                             return bag && (
-                                                <Col key={i} xs="12" sm="12" md="4" lg="4">
+                                                <Col className={styles.divBag} key={i} xs="12" sm="12" md="4" lg="4">
                                                     <Bag
                                                         image={image}
                                                         name={bag[TablesAPI.BAG.NAME]}
@@ -114,19 +127,6 @@ function FormUpdatePositionBags({ textHeader }) {
                                     Texts.NO_BAGS
                                 )
                         }
-                    </Row>
-                    {
-                        result !== '' &&
-                        <Row>
-                            {result === true ? ("SUCESSO") : ("ERRO AO ADICIONAR")}
-                        </Row>
-                    }
-                    <Row>
-                        <Button
-                            onClick={() => submit()}
-                        >
-                            {Texts.SAVE}
-                        </Button>
                     </Row>
                 </LoadingComponent>
             </Row>
@@ -160,7 +160,7 @@ function Bag({ name, image, currentPos, onDrop }) {
             >
                 <DefaultBag
                     image={image}
-                    title={name}
+                    title={<span className={styles.titleBag}>{name}</span>}
                 />
                 {
                     isOver && (

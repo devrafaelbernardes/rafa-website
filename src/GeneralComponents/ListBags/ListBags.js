@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import styles from './css/style.module.css';
 import { Bag, Loading } from '../../GeneralComponents';
-import { toDecimal } from '../../StaticContent/Functions';
 import { listBags } from '../../Rest/Functions';
 import { TablesAPI } from '../../Rest/TablesAPI';
 import Texts from '../../StaticContent/Texts';
@@ -36,7 +35,7 @@ function ListBags({ reloading }){
                     bags && bags.length > 0 ? (
                         bags.map(
                             (bag, i) => {
-                                const validatePrice = (p) => p && p > 0 ? toDecimal(p) : null;
+                                const validatePrice = (p) => p && p > 0 ? p : null;
 
                                 let image = bag.images && bag.images.length > 0 ? bag.images[0][TablesAPI.IMAGE.LOCATION] : null;
                                 let total = bag[TablesAPI.BAG.TOTAL_PRICE];

@@ -3,6 +3,7 @@ import { Row } from 'react-bootstrap';
 import styles from './css/style.module.css';
 import { Header } from '../../Components';
 import Texts from '../../../../StaticContent/Texts';
+import { FormAddBag } from '../../../../GeneralComponents';
 
 function AddBag(){
     return (
@@ -13,7 +14,7 @@ function AddBag(){
                 />
             </Row>
             <Row className={styles.body}>
-                { Texts.BAGS }
+                <FormAddBag />
             </Row>
         </Row>
     );

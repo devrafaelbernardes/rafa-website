@@ -1,7 +1,15 @@
-.root{
+.root, .divBag{
     padding: 0;
 }
 
 .root > *{
     padding-bottom: 10px;
+}
+
+.header{
+    margin-bottom: 10px;
+}
+
+.titleBag {
+    font-size: 18px;
 }
