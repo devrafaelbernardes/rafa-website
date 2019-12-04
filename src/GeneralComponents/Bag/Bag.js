@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { Row, Image } from 'react-bootstrap';
+import { Row, Image, Col } from 'react-bootstrap';
 import styles from './css/style.module.css';
 import Link from '../Link/Link';
 import Texts from '../../StaticContent/Texts';
 import { toDecimal } from '../../StaticContent/Functions';
 
-function Bag({ image, title, total, descount, price_installments, installments, link }){
+function Bag({ first_image, second_image, title, total, descount, price_installments, installments, link, right }){
     var [totalDecimal, setTotalDecimal] = useState(null);
     var [discountDecimal, setDiscountDecimal] = useState(null);
     var [priceInstallmentsDecimal, setPriceInstallmentsDecimal] = useState(null);
+    right = right === true;
 
     useEffect(() => {
         let t = total ? parseFloat(total, 10) : 0;
@@ -36,50 +37,83 @@ function Bag({ image, title, total, descount, price_installments, installments, 
             func(null);
         }
     }
-
+    let classRight = " "+ (right ? styles.right : styles.left);
+    let tam = second_image ? 5 : 12;
     return (
-        <Row className={styles.bag}>
-            {
-                image &&
-                <Row className={styles.image}>
-                    <Image src={image} />
+        <Row className={styles.bag + (right ? " " + styles.divReverse : "")}>
+            <Col className={styles.bagInfo} xs="12" sm="12" md={tam} lg={tam} style={second_image ? !right ? { paddingLeft : 0 } : { paddingRight : 0 } : { padding : 0 }}>
+                <Row>
+                    <Row className={styles.title + classRight}>
+                        {title}
+                    </Row>
+                    {
+                        discountDecimal &&
+                        <Row className={styles.descount}>
+                            <del className={classRight}>
+                                {discountDecimal}
+                            </del>
+                        </Row>
+                    }
+                    {
+                        totalDecimal &&
+                        <Row className={styles.total + classRight}>
+                            {totalDecimal}
+                        </Row>
+                    }
+                    {
+                        price_installments && installments &&
+                        <Row className={styles.installments + classRight}>
+                            {Texts.OR} {installments} x {priceInstallmentsDecimal}
+                        </Row>
+                    }
+                    {
+                        first_image &&
+                        <Row className={styles.divImage}>
+                            <Box link={link}>
+                                <Image className={styles.image} src={first_image} />
+                            </Box>
+                        </Row>
+                    }
                 </Row>
-            }
-            <Row className={styles.title}>
-                {title}
-            </Row>
+            </Col>
             {
-                discountDecimal &&
-                <Row className={styles.descount}>
-                    <del>
-                        {discountDecimal}
-                    </del>
-                </Row>
+                second_image &&
+                <Col className={styles.divSecondImage} xs="12" sm="12" md="7" lg="7" style={right ? { paddingLeft : 0 } : { paddingRight : 0 }}>
+                    <Box link={link}>
+                        <Image className={styles.secondImage} src={second_image} />
+                    </Box>
+                </Col>
             }
+        </Row>
+    );
+}
+
+function Box({ children, link }){
+    var [open, setOpen] = useState(false);
+    return (
+        <Row className={styles.box} onMouseOver={() => setOpen(true)}>
             {
-                totalDecimal &&
-                <Row className={styles.total}>
-                    {totalDecimal}
-                </Row>
-            }
-            {
-                price_installments && installments &&
-                <Row className={styles.installments}>
-                    {Texts.OR} {installments} x {priceInstallmentsDecimal}
-                </Row>
-            }
-            {
-                link &&
-                <Row className={styles.footer}>
+                link && 
+                <span onMouseOut={() => setOpen(false)}>
                     <Link
                         isLink
                         link={link}
-                        className={styles.button}
+                        style={{ display : !open ? 'none' : 'flex' }}
                     >
-                        {Texts.MORE_DETAILS}
+                        <Row className={styles.divInfo}>
+                            <Row>
+                                <Row>
+                                    { Texts.DO_YOU_WANT }
+                                </Row>
+                                <Row>
+                                    { Texts.CLICK_HERE }
+                                </Row>
+                            </Row>
+                        </Row>
                     </Link>
-                </Row>
+                </span>
             }
+            { children }
         </Row>
     );
 }

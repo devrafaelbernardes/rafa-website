@@ -1,18 +1,29 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Row, Image } from 'react-bootstrap';
 import styles from './css/style.module.css';
 import { Menu } from './Components';
 import ImageLogo from '../../../Assets/Images/logo.png';
+import { ContextApp } from '../../../Contexts';
+import { TablesAPI } from '../../../Rest/TablesAPI';
+import { Link } from '../../../GeneralComponents';
+import Texts from '../../../StaticContent/Texts';
 
 function Header(){
+    let { authenticated, user, doLogout } = useContext(ContextApp);
     return (
         <Row className={styles.header}>
-            <div className={styles.logo}>
+            <Row className={styles.logo}>
                 <Image src={ImageLogo} />
-            </div>
-            <div className={styles.menu}>
+            </Row>
+            <Row className={styles.menu}>
                 <Menu />
-            </div>
+            </Row>
+            {
+                authenticated && user &&
+                <Row className={styles.submenuAuthenticated}>
+                    {Texts.HELLO} {user[TablesAPI.USER.NAME]}, <Link className={styles.linkLogout} onClick={() => doLogout()}> {Texts.QUIT}</Link>.
+                </Row>
+            }
         </Row>
     );
 }

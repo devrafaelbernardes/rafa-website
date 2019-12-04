@@ -18,7 +18,7 @@ function FormAddBag({ textHeader }){
     });
     var [image, setImage] = useState('');
     var [result, setResult] = useState('');
-    var { name, totalPrice, discountPrice, installmentsPrice, installmentsQuantity, link } = inputs;
+    var { name, totalPrice, discountPrice, installmentsPrice, installmentsQuantity } = inputs;
     
     useEffect(() => {
         if(result !== ''){

@@ -43,3 +43,8 @@ code {
   url("//db.onlinewebfonts.com/t/b359a7e2080fb171a4befe467e647482.ttf") format("truetype"),
   url("//db.onlinewebfonts.com/t/b359a7e2080fb171a4befe467e647482.svg#NEOTERIC") format("svg");
 }
+
+@font-face {
+  font-family: AnotherFlight;
+  src: url("./Assets/fonts/AnotherFlight/Another_Flight.otf");
+}

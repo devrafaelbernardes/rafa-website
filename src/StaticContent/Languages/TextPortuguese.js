@@ -1,6 +1,8 @@
 import { SITE_NAME } from '../InfoSite';
 
 const TextPortuguese = {
+    HELLO : 'Olá',
+    QUIT : 'sair',
     HOME : 'Início',
     ERROR : 'Erro',
     NAME : 'Nome',
@@ -49,6 +51,7 @@ const TextPortuguese = {
     UNIQUE_DESIGN_DESCRIPTION : '"Buscamos sempre ter um "design" único e atemporal, utilizando materiais descartados pela indústria, o que torna o produto único e exclusivo! Cada bolsa é idealizada e confeccionada pelo próprio designer da marca em um processo totalmente artesanal."',
     TO_PURCHASE_THESE_AND_OTHER_MODELS : 'Para adquirir estes e outros modelos',
     CLICK_HERE : 'Clique aqui',
+    DO_YOU_WANT : 'Você quer?',
     SUCCESS : 'Sucesso!',
     ANY_ERROR : 'Algum erro ocorreu, tente novamente mais tarde!',
     DESCRIPTION_FORM_UPDATE_POSITION_BAGS : 'Clique na bolsa e arraste para onde quer colocá-la.',

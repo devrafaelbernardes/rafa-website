@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Image } from 'react-bootstrap';
 import styles from './css/style.module.css';
-import { Bag, Loading } from '../../GeneralComponents';
+import { Bag, Loading, Link } from '../';
 import { listBags } from '../../Rest/Functions';
 import { TablesAPI } from '../../Rest/TablesAPI';
 import Texts from '../../StaticContent/Texts';
@@ -12,18 +12,32 @@ function ListBags({ reloading }){
     var [bags, setBags] = useState(null);
 
     useEffect(() => {
-        loadPage();
-    }, [reloading]);
-
-    const loadPage = async() => {
-        await listBags()
-        .then(response => {
-            if(response && response.data && response.data.response){
-                setBags(response.data.response);
+        let IS_MOUNTED = true;
+        try {
+            listBags()
+            .then(async(response) => {
+                if(response && response.data && response.data.response && IS_MOUNTED){
+                    await setBags(response.data.response);
+                }
+                if(IS_MOUNTED){
+                    await setLoading(false);
+                }
+            })
+            .catch(e => {
+                if(IS_MOUNTED){
+                    setLoading(false);
+                }
+            });    
+        } catch (error) {
+            if(IS_MOUNTED){
+                setLoading(false);
             }
-        });
-        await setLoading(false);
-    }
+        }
+
+        return () => {
+            IS_MOUNTED = false;
+        };
+    }, [reloading]);
     
     return (
         <Row className={styles.root}>
@@ -36,23 +50,28 @@ function ListBags({ reloading }){
                         bags.map(
                             (bag, i) => {
                                 const validatePrice = (p) => p && p > 0 ? p : null;
-
-                                let image = bag.images && bag.images.length > 0 ? bag.images[0][TablesAPI.IMAGE.LOCATION] : null;
+                                const validateImage = (image) => image && image[TablesAPI.IMAGE.LOCATION] ? image[TablesAPI.IMAGE.LOCATION] : null;
+                                let first_image = validateImage(bag.first_image);
+                                let second_image = validateImage(bag.second_image);
                                 let total = bag[TablesAPI.BAG.TOTAL_PRICE];
                                 let discount = null;
                                 if(bag[TablesAPI.BAG.DISCOUNT_PRICE] < bag[TablesAPI.BAG.TOTAL_PRICE]){
                                     total = bag[TablesAPI.BAG.DISCOUNT_PRICE];
                                     discount = bag[TablesAPI.BAG.TOTAL_PRICE];
                                 }
+                                let isRight = second_image ? i % 2 === 0 : false;
+                                let tam = second_image ? 12 : 6;
                                 return (
-                                    <Col xs="12" sm="6" md="4" lg="4" key={i}>
-                                        <Bag 
+                                    <Col className={styles.divBags} xs="12" sm="12" md={tam} lg={tam} key={i}>
+                                        <Bag
+                                            key={i} 
+                                            right={isRight}
                                             title={bag[TablesAPI.BAG.NAME]}
-                                            image={image}
+                                            first_image={first_image}
+                                            second_image={second_image}
                                             total={validatePrice(total)}
                                             discount={validatePrice(discount)}
                                             installments={bag[TablesAPI.BAG.INSTALLMENTS]}
-                                            link={bag[TablesAPI.BAG.LINK]}
                                             price_installments={validatePrice(bag[TablesAPI.BAG.INSTALLMENTS_PRICE])}
                                         />
                                     </Col>

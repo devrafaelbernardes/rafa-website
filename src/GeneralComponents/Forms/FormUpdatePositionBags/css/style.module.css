@@ -1,4 +1,4 @@
-.root, .divBag{
+.root{
     padding: 0;
 }
 
@@ -12,4 +12,9 @@
 
 .titleBag {
     font-size: 18px;
+}
+
+.divBag{
+    padding: 0;
+    margin-right: 15px;
 }

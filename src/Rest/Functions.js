@@ -90,7 +90,10 @@ export async function listBags(){
             ${TablesAPI.BAG.TOTAL_PRICE}
             ${TablesAPI.BAG.INSTALLMENTS}
             ${TablesAPI.BAG.INSTALLMENTS_PRICE}
-            images {
+            first_image {
+                ${TablesAPI.IMAGE.LOCATION}
+            }
+            second_image {
                 ${TablesAPI.IMAGE.LOCATION}
             }
         }

@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { ContextApp } from './Contexts'
 import { Header, Body, Footer } from './Pages/Struct';
 import { RouterApp } from './Routers';
-import { isAuthenticated, setToken } from './Storage/Session';
+import { isAuthenticated, setToken, clearToken } from './Storage/Session';
 import { ApolloProvider } from 'react-apollo';
 import { clientGraphql, currentUser } from './Rest/Functions';
 
@@ -28,11 +28,16 @@ function App() {
         await setAuthenticated(true);
     }
   }
+  const doLogout = async() => {
+    await clearToken();
+    await setAuthenticated(false);
+  }
 
   var valueContext = {
     authenticated,
     user,
-    doLogin
+    doLogin,
+    doLogout
   };
 
   return (

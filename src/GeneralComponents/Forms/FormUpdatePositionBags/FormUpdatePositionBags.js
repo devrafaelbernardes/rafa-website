@@ -154,12 +154,13 @@ function Bag({ name, image, currentPos, onDrop }) {
     return (
         <Row
             ref={drop}
+            style={{ cursor : 'pointer' }}
         >
             <Row
                 ref={drag}
             >
                 <DefaultBag
-                    image={image}
+                    first_image={image}
                     title={<span className={styles.titleBag}>{name}</span>}
                 />
                 {

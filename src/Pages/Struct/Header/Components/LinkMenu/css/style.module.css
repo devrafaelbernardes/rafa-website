@@ -1,7 +1,7 @@
 .root{
-    padding: 0 15px;
+    padding: 0 25px;
     text-transform: uppercase;
-    font-family: NEOTERIC;
+    font-family: AnotherFlight;
 }
 .link{
     color: var(--color-black);

@@ -11,21 +11,6 @@ import Image3 from '../../Assets/Images/foto-3-about.png';
 function About(){
     return (
         <Row className={styles.about}>
-            <Row className={styles.header}>
-                <Col className={styles.boxImage} xs="12" sm="12" md="4" lg="4">
-                    <Image src={RafaImage} />
-                </Col>
-                <Col xs="12" sm="12" md="8" lg="8">
-                    <Row>
-                        <Row>
-                            <Title>{ Texts.WHEN_I }</Title>
-                        </Row>
-                        <Row className={styles.whenIDescription}>
-                            { Texts.WHEN_I_DESCRIPTION }
-                        </Row>
-                    </Row>
-                </Col>
-            </Row>
             <Row className={styles.body}>
                 <Row className={styles.images}>
                     <Image src={Image1} />
