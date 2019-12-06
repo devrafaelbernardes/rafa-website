@@ -14,13 +14,18 @@ function Bag({ first_image, second_image, title, total, descount, price_installm
     useEffect(() => {
         let t = total ? parseFloat(total, 10) : 0;
         let d = descount ? parseFloat(descount, 10) : 0;
-        
-        if(t < d){
-            addDecimal(d, setTotalDecimal);
-            addDecimal(t, setDiscountDecimal);
-        }else{
-            addDecimal(d, setDiscountDecimal);
+        if((t && !d) || (t === d)){
+            addDecimal(t, setDiscountDecimal);    
+            addDecimal(null, setTotalDecimal);
+        }else if(d && !t){
+            addDecimal(d, setDiscountDecimal);    
+            addDecimal(null, setTotalDecimal);
+        }else if(t > d){
+            addDecimal(d, setDiscountDecimal);    
             addDecimal(t, setTotalDecimal);
+        }else{
+            addDecimal(t, setDiscountDecimal);
+            addDecimal(d, setTotalDecimal);
         }
     }, [descount, total]);
 
@@ -47,17 +52,17 @@ function Bag({ first_image, second_image, title, total, descount, price_installm
                         {title}
                     </Row>
                     {
-                        discountDecimal &&
-                        <Row className={styles.descount}>
+                        totalDecimal &&
+                        <Row className={styles.total}>
                             <del className={classRight}>
-                                {discountDecimal}
+                                {totalDecimal}
                             </del>
                         </Row>
                     }
                     {
-                        totalDecimal &&
-                        <Row className={styles.total + classRight}>
-                            {totalDecimal}
+                        discountDecimal &&
+                        <Row className={styles.descount + classRight}>
+                            {discountDecimal}
                         </Row>
                     }
                     {

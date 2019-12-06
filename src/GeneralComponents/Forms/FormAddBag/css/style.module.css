@@ -5,3 +5,11 @@
 .root > *{
     padding-bottom: 10px;
 }
+
+.previewBag, .previewBag > *{
+    padding: 0;
+}
+
+.previewBag{
+    margin-bottom: 20px;
+}

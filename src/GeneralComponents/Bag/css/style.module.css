@@ -19,12 +19,12 @@
     text-align: center;
     text-transform: uppercase;
 }
-.total{
+.descount{
     font-size: 20px;
     color: var(--color-black);
     font-weight:bold;
 }
-.descount{
+.total{
     padding: 0;
 }
 .installments{
@@ -92,7 +92,7 @@
     position: relative;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 767px) {
     .divSecondImage{
         max-width: inherit !important;
     }

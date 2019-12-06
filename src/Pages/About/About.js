@@ -3,7 +3,6 @@ import { Row, Col, Image } from 'react-bootstrap';
 import { Title } from './Components';
 import styles from './css/style.module.css';
 import Texts from '../../StaticContent/Texts';
-import RafaImage from '../../Assets/Images/rafa.png';
 import Image1 from '../../Assets/Images/foto-1-about.png';
 import Image2 from '../../Assets/Images/foto-2-about.png';
 import Image3 from '../../Assets/Images/foto-3-about.png';

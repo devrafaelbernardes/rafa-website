@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Row, Col, Image } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import styles from './css/style.module.css';
-import { Bag, Loading, Link } from '../';
+import { Bag, Loading } from '../';
 import { listBags } from '../../Rest/Functions';
 import { TablesAPI } from '../../Rest/TablesAPI';
 import Texts from '../../StaticContent/Texts';

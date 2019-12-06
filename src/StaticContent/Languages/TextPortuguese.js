@@ -11,6 +11,7 @@ const TextPortuguese = {
     DISCOUNT_PRICE : 'Preço com desconto',
     INSTALLMENTS_QUANTITY : 'Quantidade de parcelas',
     INSTALLMENTS_PRICE : 'Preço das parcelas',
+    VALUE_DEPOSIT : 'Valor em deposito',
     LINK_BAG_ON_WEBSITE : 'Link da bolsa no site',
     ENTER : 'Entrar',
     SAVE : 'Salvar',
@@ -27,6 +28,8 @@ const TextPortuguese = {
     ADD : 'Adicionar',
     ADD_BAG : 'Adicionar bolsa',
     ADD_IMAGE : 'Adicionar imagem',
+    ADD_FIRST_IMAGE : 'Adicionar imagem primária',
+    ADD_SECOND_IMAGE : 'Adicionar imagem secundária',
     ADD_MEDIA : 'Adicionar mídia',
     EDIT_MEDIA : 'Editar mídia',
     EDIT_BAG : 'Editar bolsa',
@@ -55,6 +58,7 @@ const TextPortuguese = {
     SUCCESS : 'Sucesso!',
     ANY_ERROR : 'Algum erro ocorreu, tente novamente mais tarde!',
     DESCRIPTION_FORM_UPDATE_POSITION_BAGS : 'Clique na bolsa e arraste para onde quer colocá-la.',
+    DESCRIPTION_FORM_UPDATE_POSITION_MEDIAS : 'Clique na mídia e arraste para onde quer colocá-la.',
 };
 
 export { TextPortuguese };

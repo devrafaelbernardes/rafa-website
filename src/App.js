@@ -9,6 +9,7 @@ import { clientGraphql, currentUser } from './Rest/Functions';
 
 function App() {
   var [user, setUser] = useState(null);
+  var [token, setTokenUser] = useState(null);
   var [authenticated, setAuthenticated] = useState(isAuthenticated());
   
   useEffect(() => {
@@ -25,6 +26,7 @@ function App() {
   const doLogin = async(token) => {
     if(token){
         await setToken(token);
+        await setTokenUser(token);
         await setAuthenticated(true);
     }
   }
@@ -37,7 +39,8 @@ function App() {
     authenticated,
     user,
     doLogin,
-    doLogout
+    doLogout,
+    token
   };
 
   return (

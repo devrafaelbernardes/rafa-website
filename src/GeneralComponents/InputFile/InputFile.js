@@ -6,7 +6,7 @@ import { Button } from '../';
 function InputFile(props) {
     let { disabled, children, onChange, name, placeholder } = props;
     disabled = disabled === true;
-    const nameInput = "input-file";
+    const nameInput = "input-file"+name;
     return (
         <Row className={styles.root + (disabled ? " " + styles.disabled : "")}>
             <Row>

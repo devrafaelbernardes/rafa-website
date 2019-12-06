@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import styles from './css/style.module.css';
 import { Row } from 'react-bootstrap';
 
-function Input({ onChange, label, title, message, colorMessage, icon, iconRight, name, value, placeholder, type, disabled }) {
+function Input({ onChange, label, title, message, colorMessage, icon, iconRight, name, value, placeholder, type, disabled, required }) {
     var [valueState, setValueState] = useState("");
 
     disabled = disabled === true;
+    required = required === true;
     value = value ? value : valueState;
     name = name ? name : "";
     type = type ? type : "text";
@@ -41,6 +42,7 @@ function Input({ onChange, label, title, message, colorMessage, icon, iconRight,
                         placeholder={label || placeholder}
                         onChange={setValue}
                         disabled={disabled}
+                        required={required}
                     />
                 </div>
                 {

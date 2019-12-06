@@ -39,7 +39,7 @@ function ListMedia({ reloading }){
                                 if(media){
                                     let image = media.image && media.image[TablesAPI.IMAGE.LOCATION] ? media.image[TablesAPI.IMAGE.LOCATION] : null;
                                     return image && (
-                                        <Col className={styles.media} xs="12" sm="6" md="4" lg="4" key={i}>
+                                        <Col className={styles.media} xs="12" sm="6" md="6" lg="6" key={i}>
                                             <Media
                                                 image={image}
                                                 link={media[TablesAPI.MEDIA.LINK]}

@@ -11,6 +11,24 @@ export function cleanValueBoolean(value) {
     return value === true;
 }
 
+export function cleanValueFloat(value){
+    if(value){
+        try {
+            return parseFloat(((value+"").replace(',','.')), 10);
+        } catch (error) {}
+    }
+    return 0;
+}
+
+export function cleanValueInt(value){
+    if(value){
+        try {
+            return parseInt(value, 10);
+        } catch (error) {}
+    }
+    return 0;
+}
+
 export function justLettersAndNumbers(value) {
     return value.replace(/[^a-zA-Z0-9]/g, "");
 }
