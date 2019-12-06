@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './css/style.module.css';
 import { Row } from 'react-bootstrap';
 
-function Input({ onChange, label, title, message, colorMessage, icon, iconRight, name, value, placeholder, type, disabled, required }) {
+function Input({ onChange, label, title, message, colorMessage, icon, iconRight, name, value, placeholder, type, disabled, required, reset }) {
     var [valueState, setValueState] = useState("");
-
+    reset = reset === true;
     disabled = disabled === true;
     required = required === true;
     value = value ? value : valueState;
@@ -12,6 +12,12 @@ function Input({ onChange, label, title, message, colorMessage, icon, iconRight,
     type = type ? type : "text";
     placeholder = placeholder ? placeholder : "";
     colorMessage = colorMessage ? colorMessage : "inherit"; 
+
+    useEffect(() => {
+        if(reset){
+            setValueState("");    
+        }
+    }, [reset]);
 
     const setValue = (e) => {
         if (onChange) {

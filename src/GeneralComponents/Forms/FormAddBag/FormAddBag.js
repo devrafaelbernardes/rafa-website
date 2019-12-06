@@ -23,22 +23,50 @@ function FormAddBag({ textHeader }){
     });
     var [firstImage, setFirstImage] = useState(null);
     var [secondImage, setSecondImage] = useState(null);
+    var [reset, setReset] = useState(null);
     var [result, setResult] = useState('');
+    let [addBag, { data, error }] = useMutation(ADD_BAG);
     var { name, totalPrice, deposit, discountPrice, installmentsPrice, installmentsQuantity, link } = inputs;
 
-    let [addBag, { data, error }] = useMutation(ADD_BAG);
-    
     useEffect(() => {
+        if(data || error){
+            let result_submit = data && data.response ? true : false;
+            setResult(result_submit);
+            if(result_submit === true){
+                setFirstImage(null);
+                setSecondImage(null);
+                setInputs({
+                    name : '',
+                    totalPrice : '',
+                    discountPrice : '',
+                    installmentsQuantity : '',
+                    installmentsPrice : '',
+                    deposit : '',
+                    link : ''
+                });
+                setReset(true);
+            }
+        }
+    }, [data, error]);
+
+    useEffect(() => {
+        let IS_MOUNTED = true;
         if(result !== ''){
-            const timeout = setTimeout(() => {
-                setResult('');
+            const timeout = setTimeout(async() => {
+                if(IS_MOUNTED){
+                    setResult('');
+                    setReset(false);
+                }
             }, 1500);
             return () => {
+                IS_MOUNTED = false;
                 clearTimeout(timeout);
             };
         }
+        return () => {
+            IS_MOUNTED = false;
+        }
     }, [result]);
-    
 
     const submit = async() => {
         try { 
@@ -59,8 +87,6 @@ function FormAddBag({ textHeader }){
                 }
             ));
         } catch (e) {}
-        
-        await setResult(data && data.response ? true : false);
     }
 
     const changeInput = (e) => {
@@ -124,57 +150,71 @@ function FormAddBag({ textHeader }){
                 <Row>
                     <Input 
                         name="name"
+                        value={name}
                         required
                         placeholder={Texts.BAG_NAME}
                         onChange={changeInput}
+                        reset={reset}
                     />
                 </Row>
                 <Row>
                     <Input 
                         name="totalPrice"
+                        value={totalPrice}
                         placeholder={Texts.TOTAL_PRICE}
                         onChange={changeInput}
+                        reset={reset}
                     />
                 </Row>
                 <Row>
                     <Input 
                         name="discountPrice"
+                        value={discountPrice}
                         placeholder={Texts.DISCOUNT_PRICE}
                         onChange={changeInput}
+                        reset={reset}
                     />
                 </Row>
                 <Row>
                     <Input 
                         name="installmentsQuantity"
+                        value={installmentsQuantity}
                         placeholder={Texts.INSTALLMENTS_QUANTITY}
                         onChange={changeInput}
+                        reset={reset}
                     />
                 </Row>
                 <Row>
                     <Input 
                         name="installmentsPrice"
+                        value={installmentsPrice}
                         placeholder={Texts.INSTALLMENTS_PRICE}
                         onChange={changeInput}
+                        reset={reset}
                     />
                 </Row>
                 <Row>
                     <Input 
                         name="deposit"
+                        value={deposit}
                         placeholder={Texts.VALUE_DEPOSIT}
                         onChange={changeInput}
+                        reset={reset}
                     />
                 </Row>
                 <Row>
                     <Input 
                         name="link"
+                        value={link}
                         placeholder={Texts.LINK_BAG_ON_WEBSITE}
                         onChange={changeInput}
+                        reset={reset}
                     />
                 </Row>
                 {
                     (result !== '') &&
                     <Result result={result}>
-                        {data.response ? Texts.SUCCESS : Texts.ANY_ERROR }
+                        {result === true ? Texts.SUCCESS : Texts.ANY_ERROR }
                     </Result>
                 }
                 <Row>
