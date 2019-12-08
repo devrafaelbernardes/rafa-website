@@ -4,7 +4,9 @@ import { Row, Image } from 'react-bootstrap';
 import Texts from '../../../StaticContent/Texts';
 import { Input, Button, InputFile } from '../..';
 import { Form, Result } from '..';
-import { addMedia } from '../../../Rest/Functions';
+import { useMutation } from 'react-apollo';
+import mutation, { ADD_MEDIA } from '../../../Rest/mutation';
+import { getToken } from '../../../Storage/Session';
 
 function FormAddMedia({ textHeader }){
     var [inputs, setInputs] = useState({
@@ -13,12 +15,15 @@ function FormAddMedia({ textHeader }){
     var [image, setImage] = useState('');
     var [imagePreview, setImagePreview] = useState(null);
     var [result, setResult] = useState('');
-    var [/*media*/ , setMedia] = useState(null);
+    var [reset, setReset] = useState(false);
+    var [addMedia, { data, error }] = useMutation(ADD_MEDIA);
+    var { link } = inputs;
 
     useEffect(() => {
         if(result !== ''){
             const timeout = setTimeout(() => {
                 setResult('');
+                setReset(false);
             }, 1500);
             return () => {
                 clearTimeout(timeout);
@@ -26,23 +31,25 @@ function FormAddMedia({ textHeader }){
         }
     }, [result]);
 
+    useEffect(() => {
+        if(data || error){
+            let result_submit = data && data.response ? true : false;
+            setResult(result_submit);
+            if(result_submit === true){
+                setImage(null);
+                setImagePreview(null);
+                setInputs({
+                    link : '',
+                });
+                setReset(true);
+            }
+        }
+    }, [data, error]);
+
     const submit = async() => {
-        var { link } = inputs;
-        var OKEY = false;
-
         try {
-            await addMedia(link, image)
-            .then(
-                response => {
-                    if(response && response.status && response.media){
-                        OKEY = response.status;
-                        setMedia(response.media);
-                    }
-                }
-            )
+            await addMedia(mutation({ token : getToken(), link }, { image }));
         } catch (error) {}
-
-        await setResultForm(OKEY);
     }
 
     const changeInput = (e) => {
@@ -55,12 +62,11 @@ function FormAddMedia({ textHeader }){
             if(image){
                 setImagePreview(URL.createObjectURL(image));
                 setImage(image);
-            }    
+            }else{
+                setImagePreview(null);
+                setImage(null);
+            }
         } catch (error) {}
-    }
-
-    const setResultForm = (result) => {
-        setResult(result);
     }
 
     return (
@@ -74,9 +80,12 @@ function FormAddMedia({ textHeader }){
                 }
                 <Row>
                     <Input 
+                        required
+                        title={Texts.LINK_MEDIA}
                         name="link"
                         placeholder={"Link imagem"}
                         onChange={changeInput}
+                        reset={reset}
                     />
                 </Row>
                 <Row>
@@ -84,7 +93,7 @@ function FormAddMedia({ textHeader }){
                         name="image"
                         onChange={changeInputImage}
                     >
-                        { Texts.ADD_IMAGE }
+                        { image ? Texts.CHANGE_IMAGE : Texts.ADD_IMAGE }
                     </InputFile>
                 </Row>
                 {

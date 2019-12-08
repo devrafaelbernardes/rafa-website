@@ -1,7 +1,6 @@
 .bag{
     padding: 0;
     font-family: AnotherFlight;
-    justify-content: center;
 }
 .bag > *{
     justify-content: center;
@@ -15,21 +14,30 @@
 }
 .title{
     font-size: 25px;
-    color: #444;
+    color: var(--color-black);
     text-align: center;
     text-transform: uppercase;
 }
-.descount{
-    font-size: 20px;
+.price{
+    align-items: flex-end;
     color: var(--color-black);
-    font-weight:bold;
+}
+.discount{
+    font-size: 24px;
 }
 .total{
+    font-size: 18px;
     padding: 0;
+    margin-right: 10px;
+}
+.deposit, .installments{
+    color: #5e655efc;
 }
 .installments{
+    font-size: 18px;
+}
+.deposit{
     font-size: 16px;
-    color: #5e655efc;
 }
 .footer{
     padding: 10px 0;
@@ -90,6 +98,10 @@
 }
 .box{
     position: relative;
+}
+
+.buttons{
+    padding: 5px 0 0;
 }
 
 @media screen and (max-width: 767px) {

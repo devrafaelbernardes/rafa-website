@@ -1,5 +1,6 @@
 export * from './Form/Form';
 export * from './FormAddMedia/FormAddMedia';
+export * from './FormEditBag/FormEditBag';
 export * from './FormAddBag/FormAddBag';
 export * from './FormLogin/FormLogin';
 export * from './FormUpdatePositionBags/FormUpdatePositionBags';

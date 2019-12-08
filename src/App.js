@@ -5,10 +5,14 @@ import { Header, Body, Footer } from './Pages/Struct';
 import { RouterApp } from './Routers';
 import { isAuthenticated, setToken, clearToken } from './Storage/Session';
 import { ApolloProvider } from 'react-apollo';
-import { clientGraphql, currentUser } from './Rest/Functions';
+import { clientGraphql } from './Rest/ConfigAPI';
+import { currentUser } from './Rest/query';
+import { LoadingComponent } from './GeneralComponents';
 
 function App() {
   var [user, setUser] = useState(null);
+  var [loading, setLoading] = useState(true);
+  var [reload, setReload] = useState(false);
   var [token, setTokenUser] = useState(null);
   var [authenticated, setAuthenticated] = useState(isAuthenticated());
   
@@ -19,9 +23,13 @@ function App() {
           if(response && response.data && response.data.response){
             setUser(response.data.response);
           }
+          setLoading(false);
         })
-    } catch (error) {}
-  }, [authenticated]);
+        .catch(e => setLoading(false))
+    } catch (error) {
+      setLoading(false);
+    }
+  }, [authenticated, reload]);
 
   const doLogin = async(token) => {
     if(token){
@@ -34,24 +42,30 @@ function App() {
     await clearToken();
     await setAuthenticated(false);
   }
+  const reloadPage = () => {
+    setReload(!reload);
+  }
 
   var valueContext = {
     authenticated,
     user,
     doLogin,
     doLogout,
-    token
+    token,
+    reloadPage
   };
 
   return (
     <ApolloProvider client={clientGraphql}>
       <Router>
         <ContextApp.Provider value={valueContext}>
-          <Header />
-          <Body>
-            <RouterApp />
-          </Body>
-          <Footer />
+          <LoadingComponent loading={loading}>
+            <Header />
+            <Body>
+              <RouterApp />
+            </Body>
+            <Footer />
+          </LoadingComponent>
         </ContextApp.Provider>
       </Router>
     </ApolloProvider>

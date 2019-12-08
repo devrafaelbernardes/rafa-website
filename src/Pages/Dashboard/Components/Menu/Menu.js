@@ -49,13 +49,6 @@ function Menu(){
                         { Texts.EDIT_BAG }
                     </LinkMenu>
                 </Row>
-                <Row className={styles.divLinks}>
-                    <LinkMenu 
-                        link={REDIRECT.EDIT_MEDIA('')}
-                    >
-                        { Texts.EDIT_MEDIA }
-                    </LinkMenu>
-                </Row>
             </Row>
         </Row>
     );

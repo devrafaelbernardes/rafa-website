@@ -1,8 +1,8 @@
-.root{
+.root, .general{
     padding: 0;
 }
 
-.root > *{
+.general > *{
     padding-bottom: 10px;
 }
 

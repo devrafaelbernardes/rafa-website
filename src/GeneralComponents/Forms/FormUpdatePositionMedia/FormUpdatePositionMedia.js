@@ -4,10 +4,11 @@ import { Row, Col } from 'react-bootstrap';
 import Texts from '../../../StaticContent/Texts';
 import { Button, LoadingComponent, Media as DefaultMedia } from '../..';
 import { Form, Result } from '..';
-import { listMediasToEditPosition, updatePositionMedias } from '../../../Rest/Functions';
 import { TablesAPI } from '../../../Rest/TablesAPI';
 import { DndProvider, useDrag, useDrop } from 'react-dnd'
 import HTML5Backend from 'react-dnd-html5-backend'
+import { listMediasToEditPosition } from '../../../Rest/query';
+import { updatePositionMedias } from '../../../Rest/mutation';
 
 function FormUpdatePositionMedia({ textHeader }) {
     var [medias, setMedias] = useState([]);

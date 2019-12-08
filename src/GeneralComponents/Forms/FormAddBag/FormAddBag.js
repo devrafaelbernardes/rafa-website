@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './css/style.module.css';
-import { Row, Col } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import Texts from '../../../StaticContent/Texts';
 import { Input, Button, InputFile, Bag } from '../..';
 import { Form, Result } from '..';
@@ -98,7 +98,9 @@ function FormAddBag({ textHeader }){
             let image = e.target.files[0];
             if(image){
                 func(image);
-            }    
+            }else{
+                func(null);
+            }  
         } catch (error) {}
     }
 
@@ -119,24 +121,23 @@ function FormAddBag({ textHeader }){
         >
             <Row className={styles.root}>
                 <Row className={styles.previewBag}>
-                    <Col xs="12" sm="12" md="12" lg="8">
-                        <Bag 
-                            first_image={firstImage ? URL.createObjectURL(firstImage) : firstImageDefault}
-                            second_image={secondImage ? URL.createObjectURL(secondImage) : secondImageDefault}
-                            title={name ? name : Texts.BAG_NAME}
-                            installments={installmentsQuantity}
-                            price_installments={installmentsPrice}
-                            descount={discountPrice}
-                            total={totalPrice}
-                        />
-                    </Col>
+                    <Bag 
+                        first_image={firstImage ? URL.createObjectURL(firstImage) : firstImageDefault}
+                        second_image={secondImage ? URL.createObjectURL(secondImage) : secondImageDefault}
+                        title={name}
+                        installments={installmentsQuantity}
+                        price_installments={installmentsPrice}
+                        discount={discountPrice}
+                        total={totalPrice}
+                        deposit={deposit}
+                    />
                 </Row>
                 <Row>
                     <InputFile
                         name="firstImage"
                         onChange={changeInputFirstImage}
                     >
-                        { Texts.ADD_FIRST_IMAGE }
+                        { firstImage ? Texts.CHANGE_FIRST_IMAGE : Texts.ADD_FIRST_IMAGE }
                     </InputFile>
                 </Row>
                 <Row>
@@ -144,11 +145,12 @@ function FormAddBag({ textHeader }){
                         name="secondImage"
                         onChange={changeInputSecondImage}
                     >
-                        { Texts.ADD_SECOND_IMAGE }
+                        { secondImage ? Texts.CHANGE_SECOND_IMAGE : Texts.ADD_SECOND_IMAGE }
                     </InputFile>
                 </Row>
                 <Row>
                     <Input 
+                        title={Texts.BAG_NAME}
                         name="name"
                         value={name}
                         required
@@ -159,6 +161,7 @@ function FormAddBag({ textHeader }){
                 </Row>
                 <Row>
                     <Input 
+                        title={Texts.TOTAL_PRICE}
                         name="totalPrice"
                         value={totalPrice}
                         placeholder={Texts.TOTAL_PRICE}
@@ -168,6 +171,7 @@ function FormAddBag({ textHeader }){
                 </Row>
                 <Row>
                     <Input 
+                        title={Texts.DISCOUNT_PRICE}
                         name="discountPrice"
                         value={discountPrice}
                         placeholder={Texts.DISCOUNT_PRICE}
@@ -177,6 +181,7 @@ function FormAddBag({ textHeader }){
                 </Row>
                 <Row>
                     <Input 
+                        title={Texts.INSTALLMENTS_QUANTITY}
                         name="installmentsQuantity"
                         value={installmentsQuantity}
                         placeholder={Texts.INSTALLMENTS_QUANTITY}
@@ -186,6 +191,7 @@ function FormAddBag({ textHeader }){
                 </Row>
                 <Row>
                     <Input 
+                        title={Texts.INSTALLMENTS_PRICE}
                         name="installmentsPrice"
                         value={installmentsPrice}
                         placeholder={Texts.INSTALLMENTS_PRICE}
@@ -195,6 +201,7 @@ function FormAddBag({ textHeader }){
                 </Row>
                 <Row>
                     <Input 
+                        title={Texts.VALUE_DEPOSIT}
                         name="deposit"
                         value={deposit}
                         placeholder={Texts.VALUE_DEPOSIT}
@@ -204,6 +211,7 @@ function FormAddBag({ textHeader }){
                 </Row>
                 <Row>
                     <Input 
+                        title={Texts.LINK_BAG_ON_WEBSITE}
                         name="link"
                         value={link}
                         placeholder={Texts.LINK_BAG_ON_WEBSITE}

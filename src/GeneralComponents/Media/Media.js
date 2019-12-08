@@ -4,19 +4,29 @@ import styles from './css/style.module.css';
 import Link from '../Link/Link';
 
 function Media({ image, link }){
+    const Body = ({ children }) => {
+        if(link){
+            return (
+                <Link
+                    isLink={true}
+                    link={link}
+                    className={styles.button}
+                >
+                    { children }
+                </Link>
+            );
+        }
+        return <>{children}</>;
+    }
     return (
         <Row className={styles.media}>
             {
                 image &&
-                <Link
-                    isLink={link ? true : false}
-                    link={link}
-                    className={styles.button}
-                >
+                <Body>
                     <Row className={styles.image}>
                         <Image src={image} />
                     </Row>
-                </Link>
+                </Body>
             }
         </Row>
     );

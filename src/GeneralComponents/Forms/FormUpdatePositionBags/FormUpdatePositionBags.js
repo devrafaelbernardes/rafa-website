@@ -4,10 +4,11 @@ import { Row, Col } from 'react-bootstrap';
 import Texts from '../../../StaticContent/Texts';
 import { Button, LoadingComponent, Bag as DefaultBag } from '../..';
 import { Form, Result } from '..';
-import { listBagsToEditPosition, updatePositionBag } from '../../../Rest/Functions';
 import { TablesAPI } from '../../../Rest/TablesAPI';
 import { DndProvider, useDrag, useDrop } from 'react-dnd'
 import HTML5Backend from 'react-dnd-html5-backend'
+import { listBagsToEditPosition } from '../../../Rest/query';
+import { updatePositionBag } from '../../../Rest/mutation';
 
 function FormUpdatePositionBags({ textHeader }) {
     var [bags, setBags] = useState([]);
@@ -161,7 +162,7 @@ function Bag({ name, image, currentPos, onDrop }) {
             >
                 <DefaultBag
                     first_image={image}
-                    title={<span className={styles.titleBag}>{name}</span>}
+                    title={name}
                 />
                 {
                     isOver && (

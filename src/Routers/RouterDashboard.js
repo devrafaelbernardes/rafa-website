@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Switch, Redirect } from 'react-router-dom';
 import ProtectedRoute from './ProtectedRoute';
 import { ContextApp } from '../Contexts';
-import { Media, Bags, AddBag, AddMedia, EditBag, EditMedia } from '../Pages/Dashboard/Pages';
+import { Media, Bags, AddBag, AddMedia, EditBag/*, EditMedia*/ } from '../Pages/Dashboard/Pages';
 import { DashboardURL, ErrorURL, LoginURL } from './URLs';
 
 function RouterDashboard() {
@@ -47,13 +47,17 @@ function RouterDashboard() {
                 componentAuthenticated={props => <EditBag {...props} />}
                 componentNotAuthenticated={props => <Redirect to={toLogin} />}
             />
-            <ProtectedRoute 
-                exact
-                path={DASHBOARD_REDIRECT.EDIT_MEDIA}
-                authenticated={authenticated}
-                componentAuthenticated={props => <EditMedia {...props} />}
-                componentNotAuthenticated={props => <Redirect to={toLogin} />}
-            />
+            {
+                /*
+                <ProtectedRoute 
+                    exact
+                    path={DASHBOARD_REDIRECT.EDIT_MEDIA}
+                    authenticated={authenticated}
+                    componentAuthenticated={props => <EditMedia {...props} />}
+                    componentNotAuthenticated={props => <Redirect to={toLogin} />}
+                />
+                */
+            }
             <ProtectedRoute 
                 authenticated={authenticated}
                 componentAuthenticated={props => <Redirect to={toError} />}

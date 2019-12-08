@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import styles from './css/style.module.css';
 import { Bag, Loading } from '../';
-import { listBags } from '../../Rest/Functions';
 import { TablesAPI } from '../../Rest/TablesAPI';
 import Texts from '../../StaticContent/Texts';
+import { listBags } from '../../Rest/query';
 
 function ListBags({ reloading }){
     reloading = reloading === true;
@@ -49,30 +49,31 @@ function ListBags({ reloading }){
                     bags && bags.length > 0 ? (
                         bags.map(
                             (bag, i) => {
-                                const validatePrice = (p) => p && p > 0 ? p : null;
                                 const validateImage = (image) => image && image[TablesAPI.IMAGE.LOCATION] ? image[TablesAPI.IMAGE.LOCATION] : null;
                                 let first_image = validateImage(bag.first_image);
                                 let second_image = validateImage(bag.second_image);
                                 let total = bag[TablesAPI.BAG.TOTAL_PRICE];
-                                let discount = null;
-                                if(bag[TablesAPI.BAG.DISCOUNT_PRICE] < bag[TablesAPI.BAG.TOTAL_PRICE]){
-                                    total = bag[TablesAPI.BAG.DISCOUNT_PRICE];
-                                    discount = bag[TablesAPI.BAG.TOTAL_PRICE];
-                                }
+                                let discount = bag[TablesAPI.BAG.DISCOUNT_PRICE];
+                                let deposit = bag[TablesAPI.BAG.DEPOSIT];
+                                let code = bag[TablesAPI.BAG.CODE];
                                 let isRight = second_image ? i % 2 === 0 : false;
                                 let tam = second_image ? 12 : 6;
+                                
                                 return (
                                     <Col className={styles.divBags} xs="12" sm="12" md={tam} lg={tam} key={i}>
                                         <Bag
                                             key={i} 
+                                            code={code}
+                                            showButtons
                                             right={isRight}
                                             title={bag[TablesAPI.BAG.NAME]}
                                             first_image={first_image}
                                             second_image={second_image}
-                                            total={validatePrice(total)}
-                                            discount={validatePrice(discount)}
+                                            total={total}
+                                            discount={discount}
+                                            deposit={deposit}
                                             installments={bag[TablesAPI.BAG.INSTALLMENTS]}
-                                            price_installments={validatePrice(bag[TablesAPI.BAG.INSTALLMENTS_PRICE])}
+                                            price_installments={bag[TablesAPI.BAG.INSTALLMENTS_PRICE]}
                                         />
                                     </Col>
                                 );

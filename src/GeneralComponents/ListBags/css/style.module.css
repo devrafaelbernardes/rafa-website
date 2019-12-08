@@ -11,3 +11,6 @@
 .divBags{
     margin-bottom: 50px;
 }
+.divBags > *{
+    justify-content: center;
+}

@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import styles from './css/style.module.css';
 import { Loading } from '../../GeneralComponents';
-import { listMedias } from '../../Rest/Functions';
 import { TablesAPI } from '../../Rest/TablesAPI';
 import Media from '../Media/Media';
 import Texts from '../../StaticContent/Texts';
+import { listMedias } from '../../Rest/query';
 
 function ListMedia({ reloading }){
     reloading = reloading === true;

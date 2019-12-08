@@ -2,17 +2,19 @@ import React from 'react';
 import { Link as DefaultLink, NavLink } from 'react-router-dom';
 import styles from './css/style.module.css';
 
-function Link({ exact, link, isNavLink, isLink, children, className, activeClassName, onClick, style }){
+function Link({ exact, button, link, isNavLink, isLink, children, className, activeClassName, onClick, style }){
     exact = (exact === true);
     isLink = isLink === true;
+    button = button === true;
     link = link ? link : "#";
     onClick = onClick ? onClick : null;
+    let classes = (className ? " "+className : "") + (button ? " " + styles.button : "");
     return (
         <div className={styles.root}>
             {
                 isLink ? (
                     <a 
-                        className={styles.link + (className ? " " + className : "")}
+                        className={styles.link + classes}
                         href={link}
                         onClick={onClick}
                         style={style}
@@ -23,7 +25,7 @@ function Link({ exact, link, isNavLink, isLink, children, className, activeClass
                     isNavLink ? (
                         <NavLink 
                             exact={exact}
-                            className={styles.link + (className ? " " + className : "")}
+                            className={styles.link + classes}
                             activeClassName={styles.activeLink + (activeClassName ? " " + activeClassName : "")}
                             to={link}
                             onClick={onClick}
@@ -34,7 +36,7 @@ function Link({ exact, link, isNavLink, isLink, children, className, activeClass
                     ) : (
                         <DefaultLink 
                             exact={""+exact}
-                            className={styles.link + (className ? " " + className : "")}
+                            className={styles.link + classes}
                             to={link}
                             onClick={onClick}
                             style={style}
