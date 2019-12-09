@@ -4,7 +4,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 
 export const isDevelopment = process.env.NODE_ENV === "development";
 
-const URL_BASE_SERVER_API = isDevelopment ? "http://"+window.location.hostname+":4040/" : "http://"+window.location.hostname+"/api/"; //"https://api.rbernardes.com.br";
+const URL_BASE_SERVER_API = isDevelopment ? "http://"+window.location.hostname+":4040/" : "http://"+window.location.hostname+"/api/api/"; //"https://api.rbernardes.com.br/api";
 const URL_BASE_API = URL_BASE_SERVER_API+"api";
 
 const httpLink = createUploadLink({
