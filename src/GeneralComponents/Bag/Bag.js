@@ -148,7 +148,7 @@ function Bag({ showButtons, first_image, second_image, code, title, total, depos
                         first_image &&
                         <Row className={styles.divImage}>
                             <Box link={link}>
-                                <Image className={styles.image} src={first_image} />
+                                <Image fluid className={styles.image} src={first_image} />
                             </Box>
                         </Row>
                     }
@@ -158,7 +158,7 @@ function Bag({ showButtons, first_image, second_image, code, title, total, depos
                 second_image &&
                 <Col className={styles.divSecondImage} xs="12" sm="12" md="7" lg="7" style={right ? { paddingLeft : 0 } : { paddingRight : 0 }}>
                     <Box link={link}>
-                        <Image className={styles.secondImage} src={second_image} />
+                        <Image fluid className={styles.secondImage} src={second_image} />
                     </Box>
                 </Col>
             }
