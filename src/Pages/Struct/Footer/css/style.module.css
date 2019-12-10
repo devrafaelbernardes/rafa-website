@@ -17,6 +17,7 @@
 }
 .infoCompany{
     margin-bottom: 10px !important;
+    text-align: center;
 }
 .network > *{
     padding: 0 5px;
