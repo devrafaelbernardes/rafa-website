@@ -67,6 +67,8 @@ const TextPortuguese = {
     TO_PURCHASE_THESE_AND_OTHER_MODELS : 'Para adquirir estes e outros modelos',
     CLICK_HERE : 'Clique aqui',
     DO_YOU_WANT : 'Você quer?',
+    SORRY_PAGE_NOT_FOUND : 'Desculpe-nos, mas esta página não foi encontrada.',
+    PAGE_NOT_FOUND : 'Página não encontrada.',
     SUCCESS : 'Sucesso!',
     ANY_ERROR : 'Algum erro ocorreu, tente novamente mais tarde!',
     DESCRIPTION_FORM_UPDATE_POSITION_BAGS : 'Clique na bolsa e arraste para onde quer colocá-la.',

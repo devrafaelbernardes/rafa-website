@@ -63,6 +63,7 @@ export async function listMedias(){
     return await query(`{
         response : medias {
             ${TablesAPI.MEDIA.LINK}
+            ${TablesAPI.MEDIA.CODE}
             image {
                 ${TablesAPI.IMAGE.LOCATION}
             }

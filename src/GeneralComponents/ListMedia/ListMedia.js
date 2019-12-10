@@ -41,6 +41,8 @@ function ListMedia({ reloading }){
                                     return image && (
                                         <Col className={styles.media} xs="12" sm="6" md="6" lg="6" key={i}>
                                             <Media
+                                                showButtons
+                                                code={media[TablesAPI.MEDIA.CODE]}
                                                 image={image}
                                                 link={media[TablesAPI.MEDIA.LINK]}
                                             />
