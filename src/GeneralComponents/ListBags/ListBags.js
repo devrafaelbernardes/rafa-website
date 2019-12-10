@@ -12,7 +12,7 @@ function ListBags({ reloading }){
     var [bags, setBags] = useState(null);
 
     useEffect(() => {
-        let IS_MOUNTED = true;
+        let IS_MOUNTED = true; 
         try {
             listBags()
             .then(async(response) => {
@@ -74,6 +74,7 @@ function ListBags({ reloading }){
                                             deposit={deposit}
                                             installments={bag[TablesAPI.BAG.INSTALLMENTS]}
                                             price_installments={bag[TablesAPI.BAG.INSTALLMENTS_PRICE]}
+                                            link={bag[TablesAPI.BAG.LINK]}
                                         />
                                     </Col>
                                 );
