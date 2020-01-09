@@ -15,6 +15,7 @@ const TextPortuguese = {
     VALUE_DEPOSIT : 'Valor em deposito',
     LINK_BAG_ON_WEBSITE : 'Link da bolsa no site',
     LINK_MEDIA : 'Link da mídia',
+    LINK_SOCIAL_NETWORK : 'Link da rede social',
     ENTER : 'Entrar',
     SAVE : 'Salvar',
     BACK : 'Voltar',
@@ -38,6 +39,7 @@ const TextPortuguese = {
     ADD_SECOND_IMAGE : 'Adicionar imagem secundária',
     CHANGE_SECOND_IMAGE : 'Mudar imagem secundária',
     ADD_MEDIA : 'Adicionar mídia',
+    ADD_SOCIAL_NETWORK : 'Adicionar rede social',
     EDIT_MEDIA : 'Editar mídia',
     EDIT_BAG : 'Editar bolsa',
     EDIT : 'Editar',
@@ -46,6 +48,7 @@ const TextPortuguese = {
     PRIVATE_AREA : 'Área restrita',
     LOADING : 'Carregando',
     WORKSHOP : 'Workshops',
+    SOCIAL_NETWORK : 'Redes sociais',
     CONTACT : 'Contato',
     ONLINE_STORE : 'Loja Online',
     CNPJ : 'CNPJ',
@@ -54,6 +57,7 @@ const TextPortuguese = {
     NO_BAG : 'Bolsa não encontrada.',
     NO_BAGS : 'Nenhuma bolsa encontrada.',
     NO_MEDIA : 'Nenhuma mídia encontrada.',
+    NO_SOCIAL_NETWORK : 'Nenhuma rede social encontrada.',
     CLICK_ON_THE_IMAGE_TO_SEE : 'Clique nas imagens abaixo para visualizar as matérias.',
     OR : 'ou',
     ON_DEPOSIT : 'no depósito',
@@ -73,6 +77,7 @@ const TextPortuguese = {
     ANY_ERROR : 'Algum erro ocorreu, tente novamente mais tarde!',
     DESCRIPTION_FORM_UPDATE_POSITION_BAGS : 'Clique na bolsa e arraste para onde quer colocá-la.',
     DESCRIPTION_FORM_UPDATE_POSITION_MEDIAS : 'Clique na mídia e arraste para onde quer colocá-la.',
+    DESCRIPTION_FORM_UPDATE_POSITION_SOCIAL_NETWORK : 'Clique na rede social e arraste para onde quer colocá-la.',
 };
 
 export { TextPortuguese };

@@ -30,6 +30,13 @@ function Menu(){
                 </Row>
                 <Row className={styles.divLinks}>
                     <LinkMenu 
+                        link={REDIRECT.SOCIAL_NETWORK}
+                    >
+                        { Texts.SOCIAL_NETWORK }
+                    </LinkMenu>
+                </Row>
+                <Row className={styles.divLinks}>
+                    <LinkMenu 
                         link={REDIRECT.ADD_BAG}
                     >
                         { Texts.ADD_BAG }
@@ -40,6 +47,13 @@ function Menu(){
                         link={REDIRECT.ADD_MEDIA}
                     >
                         { Texts.ADD_MEDIA }
+                    </LinkMenu>
+                </Row>
+                <Row className={styles.divLinks}>
+                    <LinkMenu 
+                        link={REDIRECT.ADD_SOCIAL_NETWORK}
+                    >
+                        { Texts.ADD_SOCIAL_NETWORK }
                     </LinkMenu>
                 </Row>
                 <Row className={styles.divLinks}>

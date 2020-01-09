@@ -1,0 +1,13 @@
+.root{
+    padding: 0;
+}
+
+.social_network{
+    padding: 10px;
+}
+
+.no_item{
+    padding: 20px;
+    justify-content: center;
+    font-size: 18px;
+}

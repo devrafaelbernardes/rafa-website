@@ -7,6 +7,8 @@ export * from './InputFile/InputFile';
 export * from './Link/Link';
 export * from './ListBags/ListBags';
 export * from './ListMedia/ListMedia';
+export * from './ListSocialNetwork/ListSocialNetwork';
 export * from './Loading/Loading';
 export * from './LoadingComponent/LoadingComponent';
 export * from './Media/Media';
+export * from './SocialNetwork/SocialNetwork';

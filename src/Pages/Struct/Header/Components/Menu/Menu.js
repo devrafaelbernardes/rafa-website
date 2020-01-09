@@ -3,7 +3,7 @@ import { Row } from 'react-bootstrap';
 import styles from './css/style.module.css';
 import { LinkMenu } from '..';
 import Texts from '../../../../../StaticContent/Texts';
-import { HomeURL, MediaURL, AboutURL, DashboardURL } from '../../../../../Routers/URLs';
+import { HomeURL, MediaURL, AboutURL, DashboardURL, SocialNetworkURL } from '../../../../../Routers/URLs';
 import { URL_STORE, URL_CONTACT, URL_WORKSHOP } from '../../../../../StaticContent/ExternalURLs';
 import { ContextApp } from '../../../../../Contexts';
 
@@ -38,6 +38,10 @@ function Menu(){
                 isLink
                 link={URL_WORKSHOP}
                 text={Texts.WORKSHOP}
+            /> 
+            <LinkMenu 
+                link={SocialNetworkURL().REDIRECT.BASE}
+                text={Texts.SOCIAL_NETWORK}
             /> 
             {
                 authenticated &&

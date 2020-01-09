@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Switch, Redirect } from 'react-router-dom';
 import ProtectedRoute from './ProtectedRoute';
 import { ContextApp } from '../Contexts';
-import { Media, Bags, AddBag, AddMedia, EditBag/*, EditMedia*/ } from '../Pages/Dashboard/Pages';
+import { Media, Bags, AddBag, AddMedia, AddSocialNetwork, EditBag, SocialNetwork } from '../Pages/Dashboard/Pages';
 import { DashboardURL, ErrorURL, LoginURL } from './URLs';
 
 function RouterDashboard() {
@@ -28,6 +28,13 @@ function RouterDashboard() {
             />
             <ProtectedRoute 
                 exact
+                path={DASHBOARD_REDIRECT.SOCIAL_NETWORK}
+                authenticated={authenticated}
+                componentAuthenticated={props => <SocialNetwork {...props} />}
+                componentNotAuthenticated={props => <Redirect to={toLogin} />}
+            />
+            <ProtectedRoute 
+                exact
                 path={DASHBOARD_REDIRECT.ADD_BAG}
                 authenticated={authenticated}
                 componentAuthenticated={props => <AddBag {...props} />}
@@ -38,6 +45,13 @@ function RouterDashboard() {
                 path={DASHBOARD_REDIRECT.ADD_MEDIA}
                 authenticated={authenticated}
                 componentAuthenticated={props => <AddMedia {...props} />}
+                componentNotAuthenticated={props => <Redirect to={toLogin} />}
+            />
+            <ProtectedRoute 
+                exact
+                path={DASHBOARD_REDIRECT.ADD_SOCIAL_NETWORK}
+                authenticated={authenticated}
+                componentAuthenticated={props => <AddSocialNetwork {...props} />}
                 componentNotAuthenticated={props => <Redirect to={toLogin} />}
             />
             <ProtectedRoute 

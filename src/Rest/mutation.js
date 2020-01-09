@@ -21,6 +21,12 @@ export const ADD_MEDIA = gql`
     }
 `;
 
+export const ADD_SOCIAL_NETWORK = gql`
+    mutation MutationAddSocialNetwork($input : InputAddSocialNetwork, $image : Upload){
+        response : addSocialNetwork(input: $input, image : $image)
+    }
+`;
+
 export async function validateLogin(login, password){ 
     var query = `mutation LoginValidate($input : Login){
         response : loginValidate(input: $input){
@@ -58,6 +64,17 @@ export async function updatePositionMedias(medias){
     })
 }
 
+export async function updatePositionSocialNetworks(social_networks){ 
+    var query = `mutation MutationUpdatePositionSocialNetworks($input : InputUpdatePositionSocialNetwork){
+        response : updatePositionSocialNetworks(input: $input)
+    }
+    `;
+    return await mutation(query, {
+        social_networks : social_networks,
+        token : getToken()
+    })
+}
+
 export async function removeBag(code){ 
     var query = `mutation MutationRemoveBag($input : InputRemove){
         response : removeBag(input: $input)
@@ -72,6 +89,17 @@ export async function removeBag(code){
 export async function removeMedia(code){ 
     var query = `mutation MutationRemoveMedia($input : InputRemove){
         response : removeMedia(input: $input)
+    }
+    `;
+    return await mutation(query, {
+        code,
+        token : getToken()
+    })
+}
+
+export async function removeSocialNetwork(code){ 
+    var query = `mutation MutationRemoveSocialNetwork($input : InputRemove){
+        response : removeSocialNetwork(input: $input)
     }
     `;
     return await mutation(query, {

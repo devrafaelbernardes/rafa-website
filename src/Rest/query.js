@@ -59,11 +59,34 @@ export async function listMediasToEditPosition(){
     }`);
 }
 
+export async function listSocialNetworksToEditPosition(){
+    return await query(`{
+        response : social_networks {
+            ${TablesAPI.SOCIAL_NETWORK.CODE}
+            image {
+                ${TablesAPI.IMAGE.LOCATION}
+            }
+        }
+    }`);
+}
+
 export async function listMedias(){
     return await query(`{
         response : medias {
             ${TablesAPI.MEDIA.LINK}
             ${TablesAPI.MEDIA.CODE}
+            image {
+                ${TablesAPI.IMAGE.LOCATION}
+            }
+        }
+    }`);
+}
+
+export async function listSocialNetworks(){
+    return await query(`{
+        response : social_networks {
+            ${TablesAPI.SOCIAL_NETWORK.LINK}
+            ${TablesAPI.SOCIAL_NETWORK.CODE}
             image {
                 ${TablesAPI.IMAGE.LOCATION}
             }

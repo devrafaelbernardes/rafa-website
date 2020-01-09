@@ -2,8 +2,8 @@ import React, { useContext } from 'react';
 import { Switch, Redirect } from 'react-router-dom';
 import ProtectedRoute from './ProtectedRoute';
 import { ContextApp } from '../Contexts';
-import { Home, Media, About, Error, Dashboard, Login } from '../Pages';
-import { HomeURL, MediaURL, AboutURL, DashboardURL, LoginURL } from './URLs';
+import { Home, Media, About, Error, Dashboard, Login, SocialNetwork } from '../Pages';
+import { HomeURL, MediaURL, AboutURL, DashboardURL, LoginURL, SocialNetworkURL } from './URLs';
 
 function RouterApp() {
     var { authenticated } = useContext(ContextApp);
@@ -22,6 +22,13 @@ function RouterApp() {
                 authenticated={authenticated}
                 componentAuthenticated={props => <Media {...props} />}
                 componentNotAuthenticated={props => <Media {...props} />}
+            />
+            <ProtectedRoute 
+                exact
+                path={SocialNetworkURL().ROUTER.BASE}
+                authenticated={authenticated}
+                componentAuthenticated={props => <SocialNetwork {...props} />}
+                componentNotAuthenticated={props => <SocialNetwork {...props} />}
             />
             <ProtectedRoute 
                 exact
