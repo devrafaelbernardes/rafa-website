@@ -59,6 +59,7 @@ export function FormAddSocialNetwork({ textHeader }){
     const changeInputImage = (e) => {
         try {
             var image = e.target.files[0];
+            
             if(image){
                 setImagePreview(URL.createObjectURL(image));
                 setImage(image);
@@ -68,6 +69,9 @@ export function FormAddSocialNetwork({ textHeader }){
             }
         } catch (error) {}
     }
+
+    console.log(image);
+    
 
     return (
         <Form
@@ -92,6 +96,7 @@ export function FormAddSocialNetwork({ textHeader }){
                     <InputFile
                         name="image"
                         onChange={changeInputImage}
+                        reset={reset}
                     >
                         { image ? Texts.CHANGE_IMAGE : Texts.ADD_IMAGE }
                     </InputFile>

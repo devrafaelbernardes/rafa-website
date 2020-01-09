@@ -14,7 +14,10 @@ export function SocialNetwork(){
     */
     return (
         <Row className={styles.social_network}>
-            <ListSocialNetwork reloading={reloading} />
+            <ListSocialNetwork
+                className={styles.list}
+                reloading={reloading}
+            />
         </Row>
     );
 }

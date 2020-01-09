@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './css/style.module.css';
 import { Row } from 'react-bootstrap';
 import { Button } from '../';
 
 function InputFile(props) {
-    let { disabled, children, onChange, name, placeholder } = props;
+    let { disabled, children, onChange, name, placeholder, reset } = props;
     disabled = disabled === true;
     const nameInput = "input-file"+name;
+    useEffect(() => {
+        if(reset === true){
+            document.getElementById(nameInput).value = "";
+        }
+    }, [reset, nameInput]);
     return (
         <Row className={styles.root + (disabled ? " " + styles.disabled : "")}>
             <Row>

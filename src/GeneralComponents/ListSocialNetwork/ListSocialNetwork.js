@@ -6,7 +6,7 @@ import { TablesAPI } from '../../Rest/TablesAPI';
 import Texts from '../../StaticContent/Texts';
 import { listSocialNetworks } from '../../Rest/query';
 
-export function ListSocialNetwork({ reloading }){
+export function ListSocialNetwork({ reloading, className }){
     reloading = reloading === true;
     var [loading, setLoading] = useState(true);
     var [socialNetworks, setSocialNetworks] = useState(null);
@@ -26,8 +26,7 @@ export function ListSocialNetwork({ reloading }){
     }
     
     return (
-        <Row className={styles.root}>
-            <Row>
+        <Row className={styles.root + (className ? " " + className: "")}>
             {
                 loading ? (
                     <Loading />
@@ -56,7 +55,6 @@ export function ListSocialNetwork({ reloading }){
                     )
                 )
             }
-            </Row>
         </Row>
     );
 }
