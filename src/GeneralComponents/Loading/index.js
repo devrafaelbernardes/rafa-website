@@ -13,7 +13,7 @@ export function Loading({ color = null, ...props }){
                 <LoadingIcon spin />
             </SpinnerContainer>
             <Title color={color}>
-                { TEXTS.TITLE }...
+                { TEXTS }...
             </Title>
         </Container>
     );
