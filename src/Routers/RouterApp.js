@@ -1,62 +1,46 @@
-import React, { useContext } from 'react';
-import { Switch, Redirect } from 'react-router-dom';
-import ProtectedRoute from './ProtectedRoute';
-import { ContextApp } from '../Contexts';
-import { Home, Media, About, Error, Dashboard, Login, SocialNetwork } from '../Pages';
-import { HomeURL, MediaURL, AboutURL, DashboardURL, LoginURL, SocialNetworkURL } from './URLs';
+import React from 'react';
+import { Switch } from 'react-router-dom';
 
-function RouterApp() {
-    var { authenticated } = useContext(ContextApp);
+import ProtectedRoute from 'Routers/ProtectedRoute';
+import { HomeURL, MediaURL, AboutURL, SocialNetworkURL } from 'Routers/URLs';
+
+import Home from 'Pages/Home';
+import Media from 'Pages/Media';
+import About from 'Pages/About';
+import SocialNetwork from 'Pages/SocialNetwork';
+import PageNotFound from 'Pages/Error/PageNotFound';
+
+
+export function RouterApp() {
     return (
         <Switch>
             <ProtectedRoute 
                 exact
                 path={HomeURL().ROUTER.BASE}
-                authenticated={authenticated}
                 componentAuthenticated={props => <Home {...props} />}
                 componentNotAuthenticated={props => <Home {...props} />}
             />
-            <ProtectedRoute 
-                exact
+            <ProtectedRoute
                 path={MediaURL().ROUTER.BASE}
-                authenticated={authenticated}
                 componentAuthenticated={props => <Media {...props} />}
                 componentNotAuthenticated={props => <Media {...props} />}
             />
-            <ProtectedRoute 
-                exact
+            <ProtectedRoute
                 path={SocialNetworkURL().ROUTER.BASE}
-                authenticated={authenticated}
                 componentAuthenticated={props => <SocialNetwork {...props} />}
                 componentNotAuthenticated={props => <SocialNetwork {...props} />}
             />
-            <ProtectedRoute 
-                exact
+            <ProtectedRoute
                 path={AboutURL().ROUTER.BASE}
-                authenticated={authenticated}
                 componentAuthenticated={props => <About {...props} />}
                 componentNotAuthenticated={props => <About {...props} />}
             />
-            <ProtectedRoute
-                path={LoginURL().ROUTER.BASE}
-                authenticated={authenticated}
-                componentAuthenticated={props => <Redirect to={HomeURL().REDIRECT.BASE} />}
-                componentNotAuthenticated={props => <Login {...props} />}
-            />
-            <ProtectedRoute
-                path={DashboardURL().ROUTER.BASE}
-                authenticated={authenticated}
-                componentAuthenticated={props => <Dashboard {...props} />}
-                componentNotAuthenticated={props => <Dashboard {...props} />}
-            />
             <ProtectedRoute 
-                authenticated={authenticated}
-                componentAuthenticated={props => <Error {...props} />}
-                componentNotAuthenticated={props => <Error {...props} />}
+                componentAuthenticated={props => <PageNotFound {...props} />}
+                componentNotAuthenticated={props => <PageNotFound {...props} />}
             />
         </Switch>
     );
 }
 
-export { RouterApp };
 export default RouterApp;

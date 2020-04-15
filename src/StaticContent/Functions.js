@@ -1,5 +1,3 @@
-import { getLanguage } from "../Storage/Session";
-
 export function cleanValue(value) {
     if (value) {
         value = htmlspecialchars(value);
@@ -34,11 +32,10 @@ export function justLettersAndNumbers(value) {
 }
 
 export function toDecimal(value) {
-    var language = getLanguage();
     if (value === undefined || value === null || value === "") {
         value = 0.00;
     }
-    return (value).toLocaleString(language.language, { style: 'currency', currency: language.currency });
+    return (value).toLocaleString('PT-BR', { style: 'currency', currency: 'BRL' });
 }
 
 export function showDate(value) {
@@ -52,7 +49,7 @@ export function showDate(value) {
 export function showJustDate(value) {
     if (value) {
         value = parseInt(value, 10);
-        return ((new Date(value)).toLocaleString()).substr(0, 10);
+        return (new Date(value)).toLocaleDateString();
     }
     return "";
 }

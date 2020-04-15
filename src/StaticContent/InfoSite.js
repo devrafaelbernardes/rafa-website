@@ -1,3 +1,5 @@
+export const isDevelopment = process.env.NODE_ENV === "development";
+
 export const SITE_NAME = 'Rafael Bernardes';
 export const FANTASY_NAME = 'RAFAEL BERNARDES BOLSAS';
 export const CNPJ = '17.119.749/0001-55';

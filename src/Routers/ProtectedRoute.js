@@ -1,10 +1,8 @@
 import React from "react";
-import PropTypes from 'prop-types';
 import { Redirect, Route } from 'react-router-dom';
 
-
-function ProtectedRoute(props){
-    var { authenticated, redirectAuthenticatedURL, redirectNotAuthenticatedURL, componentNotAuthenticated: ComponentNotAuthenticated, componentAuthenticated: ComponentAuthenticated } = props;
+function ProtectedRoute({ redirectAuthenticatedURL, redirectNotAuthenticatedURL, componentNotAuthenticated: ComponentNotAuthenticated, componentAuthenticated: ComponentAuthenticated, ...props }){
+    const authenticated = false;
     redirectAuthenticatedURL = redirectAuthenticatedURL ? redirectAuthenticatedURL : "";
     redirectNotAuthenticatedURL = redirectNotAuthenticatedURL ? redirectNotAuthenticatedURL : "";
 
@@ -29,11 +27,5 @@ function ProtectedRoute(props){
         />
     );
 }
-
-ProtectedRoute.propTypes = {
-    authenticated: PropTypes.bool.isRequired,
-    redirectAuthenticatedURL: PropTypes.string,
-    redirectNotAuthenticatedURL: PropTypes.string,
-};
 
 export default ProtectedRoute;

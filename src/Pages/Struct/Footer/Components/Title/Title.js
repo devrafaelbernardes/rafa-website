@@ -1,13 +1,12 @@
 import React from 'react';
-import styles from './css/style.module.css';
+import { Container } from './styles';
 
-function Title({ children }){
+export function Title({ children, ...props }){
     return (
-        <div className={styles.title}>
+        <Container {...props}>
             { children }
-        </div>
+        </Container>
     );
 }
 
-export { Title };
 export default Title;
