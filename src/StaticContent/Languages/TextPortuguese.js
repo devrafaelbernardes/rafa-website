@@ -71,13 +71,21 @@ const TextPortuguese = {
     TO_PURCHASE_THESE_AND_OTHER_MODELS : 'Para adquirir estes e outros modelos',
     CLICK_HERE : 'Clique aqui',
     DO_YOU_WANT : 'Você quer?',
-    SORRY_PAGE_NOT_FOUND : 'Desculpe-nos, mas esta página não foi encontrada.',
-    PAGE_NOT_FOUND : 'Página não encontrada.',
     SUCCESS : 'Sucesso!',
     ANY_ERROR : 'Algum erro ocorreu, tente novamente mais tarde!',
     DESCRIPTION_FORM_UPDATE_POSITION_BAGS : 'Clique na bolsa e arraste para onde quer colocá-la.',
     DESCRIPTION_FORM_UPDATE_POSITION_MEDIAS : 'Clique na mídia e arraste para onde quer colocá-la.',
     DESCRIPTION_FORM_UPDATE_POSITION_SOCIAL_NETWORK : 'Clique na rede social e arraste para onde quer colocá-la.',
+
+    LIST: {
+        NOT_FOUND: 'Me desculpa, não encontrei ninguém.',
+    },
+
+    PAGE_NOT_FOUND: {
+        TITLE: 'Desculpe, mas não consegui encontrar essa página.',
+        OOPS: 'Ooops!',
+        BUTTON_HOME: 'Início',
+    },
 };
 
 export { TextPortuguese };

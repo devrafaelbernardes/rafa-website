@@ -1,13 +1,12 @@
 import React from 'react';
-import styles from './css/style.module.css';
+import { Container } from './styles';
 
-function Item({ children }){
+export function Item({ children, ...props }){
     return (
-        <div className={styles.root}>
+        <Container {...props}>
             {children}
-        </div>
+        </Container>
     );
 }
 
-export { Item };
 export default Item;
