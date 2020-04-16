@@ -52,7 +52,7 @@ export function ListBags({ ...props }) {
                                     deposit={deposit}
                                     installments={bag[BAG.INSTALLMENTS]}
                                     installmentsPrice={bag[BAG.INSTALLMENTS_PRICE]}
-                                    link={bag[BAG.LINK]}
+                                    href={bag[BAG.LINK]}
                                 />
                             </ContainerBag>
                         );
