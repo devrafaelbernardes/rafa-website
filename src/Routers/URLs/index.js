@@ -1,5 +1,5 @@
 export * from './AboutURL';
-export * from './DashboardURL';
+export * from './CoursesURL';
 export * from './ErrorURL';
 export * from './HomeURL';
 export * from './LoginURL';

@@ -3,8 +3,8 @@ import React from 'react';
 import { Container, OptionMenu } from './styles';
 
 import Texts from 'StaticContent/Texts';
-import { HomeURL, MediaURL, AboutURL, SocialNetworkURL } from 'Routers/URLs';
-import { URL_STORE, URL_CONTACT, URL_WORKSHOP } from 'StaticContent/ExternalURLs';
+import { HomeURL, MediaURL, AboutURL, SocialNetworkURL, CoursesURL } from 'Routers/URLs';
+import { URL_STORE, URL_CONTACT } from 'StaticContent/ExternalURLs';
 import List from 'GeneralComponents/List';
 
 export function Menu() {
@@ -33,8 +33,8 @@ export function Menu() {
                         text: Texts.CONTACT,
                     },
                     {
-                        href: URL_WORKSHOP,
-                        text: Texts.WORKSHOP,
+                        to: CoursesURL().REDIRECT.BASE,
+                        text: Texts.COURSES,
                     },
                     {
                         to: SocialNetworkURL().REDIRECT.BASE,

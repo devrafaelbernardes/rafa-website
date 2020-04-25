@@ -48,6 +48,7 @@ const TextPortuguese = {
     PRIVATE_AREA : 'Área restrita',
     LOADING : 'Carregando',
     WORKSHOP : 'Workshops',
+    COURSES : 'Cursos',
     SOCIAL_NETWORK : 'Redes sociais',
     CONTACT : 'Contato',
     ONLINE_STORE : 'Loja Online',
@@ -86,6 +87,10 @@ const TextPortuguese = {
         OOPS: 'Ooops!',
         BUTTON_HOME: 'Início',
     },
+
+    PAGE_COURSES : {
+        
+    }
 };
 
 export { TextPortuguese };
