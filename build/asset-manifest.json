@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.js": "/static/js/main.97226eff.chunk.js",
+    "main.js.map": "/static/js/main.97226eff.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.105f67c5.js",
+    "runtime~main.js.map": "/static/js/runtime~main.105f67c5.js.map",
+    "static/css/2.9dafe002.chunk.css": "/static/css/2.9dafe002.chunk.css",
+    "static/js/2.fff4b588.chunk.js": "/static/js/2.fff4b588.chunk.js",
+    "static/js/2.fff4b588.chunk.js.map": "/static/js/2.fff4b588.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.c93aa7114011972a739ef29cc5eccda9.js": "/precache-manifest.c93aa7114011972a739ef29cc5eccda9.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.9dafe002.chunk.css.map": "/static/css/2.9dafe002.chunk.css.map",
+    "static/media/Another_Flight.otf": "/static/media/Another_Flight.b2102722.otf",
+    "static/media/courses.jpg": "/static/media/courses.d11bbb52.jpg",
+    "static/media/foto-1-about.png": "/static/media/foto-1-about.9f2c9690.png",
+    "static/media/foto-2-about.png": "/static/media/foto-2-about.23070e04.png",
+    "static/media/foto-3-about.png": "/static/media/foto-3-about.e8d6e4aa.png",
+    "static/media/logo.png": "/static/media/logo.50696249.png",
+    "static/media/no-image.png": "/static/media/no-image.f98b32ce.png",
+    "static/media/workshops.jpg": "/static/media/workshops.1efdd4aa.jpg"
+  }
+}
