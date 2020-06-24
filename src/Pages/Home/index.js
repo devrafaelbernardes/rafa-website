@@ -1,10 +1,11 @@
+import ListBags from 'GeneralComponents/ListBags';
 import React from 'react';
 import { Row } from 'react-bootstrap';
-
-import { Container, General, Footer, FooterLink, OtherModels } from './styles';
-
+import { URL_STORE } from 'StaticContent/ExternalURLs';
 import Texts from 'StaticContent/Texts';
-import ListBags from 'GeneralComponents/ListBags';
+import { Container, Footer, FooterLink, General, OtherModels } from './styles';
+
+
 
 export function Home() {
     return (
@@ -18,7 +19,9 @@ export function Home() {
                         {Texts.TO_PURCHASE_THESE_AND_OTHER_MODELS}
                     </OtherModels>
                     <Row>
-                        <FooterLink>
+                        <FooterLink
+                            href={URL_STORE}
+                        >
                             {Texts.CLICK_HERE}
                         </FooterLink>
                     </Row>

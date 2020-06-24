@@ -52,15 +52,26 @@ export const COURSE = {
     PROFILE_IMAGE : 'profile_image',
     IS_ACTIVE : 'is_active',
     CREATED_AT : 'created_at',
+    MATERIALS : 'materials',
     STUDENTS : 'students',
     VIDEOS : 'videos',
+    COUNT_MATERIALS : 'count_materials',
     COUNT_STUDENTS : 'count_students',
     COUNT_VIDEOS : 'count_videos',
 };
 
+export const COURSE_MATERIAL = {
+    ID : 'id',
+    NAME : 'name',
+    MATERIAL : 'material',
+    IS_ACTIVE : 'is_active',
+    CREATED_AT : 'created_at',
+}
+
 export const COURSE_ACCESS = {
     ID : 'id',
     CURRENTY_STATE : 'currenty_state',
+    EMAIL : 'email',
     TOKEN : 'token',
     COURSE : 'course',
     STUDENT : 'student',
@@ -72,6 +83,7 @@ export const COURSE_PREVIEW = {
     ID : 'id',
     NAME : 'name',
     DESCRIPTION : 'description',
+    PURCHASE_LINK : 'purchase_link',
     IS_ACTIVE : 'is_active',
     CREATED_AT : 'created_at',
     INSTRUCTOR : 'instructor',
@@ -92,11 +104,30 @@ export const COURSE_VIDEO = {
     NAME : 'name',
     DESCRIPTION : 'description',
     VIDEO : 'video',
+    THUMBNAIL : 'thumbnail',
+    IS_ACTIVE : 'is_active',
+    CREATED_AT : 'created_at',
+};
+
+export const EMAIL = {
+    ID : 'id',
+    TO : 'to',
+    STUDENT : 'student',
+    SUBJECT : 'subject',
+    MESSAGE : 'message',
     IS_ACTIVE : 'is_active',
     CREATED_AT : 'created_at',
 };
 
 export const IMAGE = {
+    ID : 'id',
+    NAME : 'name',
+    URL : 'url',
+    IS_ACTIVE : 'is_active',
+    CREATED_AT : 'created_at',
+};
+
+export const MATERIAL = {
     ID : 'id',
     NAME : 'name',
     URL : 'url',
@@ -142,6 +173,8 @@ export const STUDENT = {
     FULL_NAME : 'full_name',
     EMAIL : 'email',
     PROFILE_IMAGE : 'profile_image',
+    IS_VALIDATED_EMAIL : 'is_validated_email',
+    COUNT_COURSES : 'count_courses',
     IS_ACTIVE : 'is_active',
     CREATED_AT : 'created_at',
 };
