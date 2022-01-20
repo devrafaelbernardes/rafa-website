@@ -34,7 +34,7 @@ export function ListMedia({ isLandingPage = false, ...props }) {
                             <ContainerMedia xs="12" sm="6" md="4" lg="4" key={i}>
                                 <Media
                                     isLandingPage={isLandingPage} 
-                                    image={'https://api.rbernardes.com.br/image/file1642712973905-hehe.png'}
+                                    image={image}
                                     title={media[MEDIA.TITLE]}
                                     link={media[MEDIA.LINK]}
                                 />
