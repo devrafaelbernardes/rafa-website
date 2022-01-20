@@ -138,6 +138,8 @@ export const MATERIAL = {
 export const MEDIA = {
     ID : 'id',
     LINK : 'link',
+    TITLE : 'title',
+    IS_LANDING_PAGE : 'is_landing_page',
     POSITION : 'position',
     IMAGE : 'image',
     IS_ACTIVE : 'is_active',

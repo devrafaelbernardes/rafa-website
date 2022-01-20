@@ -22,11 +22,13 @@ export const GET_BAGS = gql`{
     }
 }`;
 
-export const GET_MEDIAS = gql`{
-    response : medias {
+export const GET_MEDIAS = (isLandingPage) => gql`{
+    response : medias(is_landing_page: ${isLandingPage}) {
         ${PAGINATION.ITEMS}{
             ${MEDIA.LINK}
             ${MEDIA.ID}
+            ${MEDIA.IS_LANDING_PAGE}
+            ${MEDIA.TITLE}
             ${MEDIA.IMAGE} {
                 ${IMAGE.URL}
             }

@@ -1,4 +1,4 @@
-import ListBags from 'GeneralComponents/ListBags';
+import ListMedia from 'GeneralComponents/ListMedia';
 import React from 'react';
 import { Row } from 'react-bootstrap';
 import { URL_STORE } from 'StaticContent/ExternalURLs';
@@ -12,7 +12,7 @@ export function Home() {
         <Container>
             <General>
                 <Row>
-                    <ListBags />
+                    <ListMedia isLandingPage />
                 </Row>
                 <Footer>
                     <OtherModels>
