@@ -24,6 +24,6 @@ export const ContainerLogo = styled(Row)`
     margin-bottom: 15px;
     & > *{
         width: 100%;
-        max-width: 180px;
+        max-width: 300px;
     }
 `;
