@@ -64,8 +64,16 @@ const TextPortuguese = {
     ON_DEPOSIT : 'no depósito',
     COPYRIGHT : `Copyright © ${SITE_NAME} - Todos os direitos reservados`,
     DEVELOPER : 'Desenvolvedor',
-    WHEN_I : 'Quem sou...',
-    WHEN_I_DESCRIPTION : '“Nasci em Porto Alegre – RS, na metade dos anos 80. Cresci com lápis e papel nas mãos, eram meus companheiros, minhas brincadeiras sempre estavam relacionadas à criação, na maioria das vezes era desenhar. Com o passar dos anos fui desenvolvendo minha técnica de desenho e fiz vários cursos nas áreas do Design, mas me encontrei no curso de Artefatos em Couro na Escola do SENAI de Novo Hamburgo – RS. Atualmente, procuro fazer bolsas com design clean e elegante. Minhas inspirações sempre foram a moda dos anos 40,50 e 60, onde ocorreram muitas transformações e descobertas que revolucionaram o mundo da moda. É esta possibilidade de transformação que me encanta e alimenta, fazer algo transformar-se em outro com minhas próprias mãos e, além disso, criar objetos de desejo.”',
+    WHEN_I : 'ERA UMA VEZ...',
+    WHEN_I_DESCRIPTION : `“Um guri nascido em um bairro muito distante do centro da capital gaúcha, um guri muito criativo que adorava desenhar, brincar de "escritório" com teclados imaginários e assistir Castelo RÁ-TIM-BUM a tarde após o almoço…
+    Brincar com as mãos sempre foi seu melhor passatempo. Esse guri foi crescendo e aprendeu que para sobreviver deveria criar o seu próprio destino, sua criatividade sempre foi marcante e intensa, transbordava, sentia-se preso naquilo que fazia e não gostava de ser subalterno... ou subordinado? - GOOGLE PESQUISAR - Enfim…
+    Sua habilidade com as mãos foi tomando cada vez mais “forma” em sua cabeça, a inquietude fez procurar tudo que podia e estava ao seu alcance, determinação sempre andou junto de sua criatividade.
+    Sempre soube que nada do que queria seria fácil, haviam muitas barreiras, MUITAS! Família, origem, condições, sexualidade, financeira… Mas a maior delas, sempre foi ele mesmo…
+    Esse guri um dia decidiu que faria do jeito dele, como podia e do jeito que dava… Foi crescendo, amadurecendo, se importando cada vez menos com o que estava ao seu redor e foi seguindo o seu coração…
+    Foi usando aquilo que estava em suas mãos e tirando o maior proveito dela, exigente que só ele, mas com um propósito, a satisfação de ter feito e criado o seu próprio destino, sem depender de ninguém e nem precisar fazer para alguém.
+    As poucas condições sempre fizeram com que buscasse o máximo de tudo, nem sempre tinha o material certo para o produto certo, se tem o branco prq tem que usar o preto? e assim foi seguindo e trilhando o seu caminho…
+    Caminho esse que é looooooongo, cheio de pedregulhos, buracos e barreiras, mas esse guri nunca quis chegar ao destino final e sim aproveitar a viagem, pois é isso que importa!
+    ”`,
     WHEN_DOES : 'Quem faz...',
     WHEN_DOES_DESCRIPTION : '"Todas as bolsas são feitas a partir de pesquisas e escolhas de materiais e um toque de criatividade. Produzimos os desenhos, partimos para Modelagem e as confecções das peças piloto até chegarmos ao modelo desejado. Resultado satisfatório, começamos a confecção. Iniciamos com o corte das peças, montagem, cola e costura. Quando a peça está pronta, fotografamos e colocamos à disposição do público nas redes sociais para comercialização!"',
     UNIQUE_DESIGN_DESCRIPTION : '"Buscamos sempre ter um "design" único e atemporal, utilizando materiais descartados pela indústria, o que torna o produto único e exclusivo! Cada bolsa é idealizada e confeccionada pelo próprio designer da marca em um processo totalmente artesanal."',

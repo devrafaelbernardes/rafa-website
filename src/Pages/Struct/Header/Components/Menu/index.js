@@ -1,11 +1,9 @@
-import React from 'react';
-
-import { Container, OptionMenu } from './styles';
-
-import Texts from 'StaticContent/Texts';
-import { HomeURL, MediaURL, AboutURL, SocialNetworkURL, CoursesURL } from 'Routers/URLs';
-import { URL_STORE, URL_CONTACT } from 'StaticContent/ExternalURLs';
 import List from 'GeneralComponents/List';
+import React from 'react';
+import { AboutURL, HomeURL, MediaURL, SocialNetworkURL } from 'Routers/URLs';
+import { URL_CONTACT } from 'StaticContent/ExternalURLs';
+import Texts from 'StaticContent/Texts';
+import { Container, OptionMenu } from './styles';
 
 export function Menu() {
     return (
@@ -15,10 +13,6 @@ export function Menu() {
                     {
                         to: HomeURL().REDIRECT.BASE,
                         text: Texts.HOME,
-                    },
-                    {
-                        href: URL_STORE,
-                        text: Texts.ONLINE_STORE,
                     },
                     {
                         to: MediaURL().REDIRECT.BASE,
@@ -31,10 +25,6 @@ export function Menu() {
                     {
                         href: URL_CONTACT,
                         text: Texts.CONTACT,
-                    },
-                    {
-                        to: CoursesURL().REDIRECT.BASE,
-                        text: Texts.COURSES,
                     },
                     {
                         to: SocialNetworkURL().REDIRECT.BASE,
