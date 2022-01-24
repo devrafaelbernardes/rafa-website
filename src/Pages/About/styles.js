@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { Col, Row } from 'react-bootstrap';
-import Image from 'GeneralComponents/Image';
 
 export const Container = styled(Row)`
     padding: 0;
