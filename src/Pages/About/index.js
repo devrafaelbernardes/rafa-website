@@ -4,7 +4,8 @@ import { Row } from 'react-bootstrap';
 import Title from './Components/Title';
 
 import Texts from '../../StaticContent/Texts';
-import Image1 from '../../Assets/Images/rafa.png';
+import Image1 from '../../Assets/Images/foto-1-about-new.png';
+import Image2 from '../../Assets/Images/foto-2-about-new.png';
 
 import { Container, ContainerImage, General, ContainerDescription, Description } from './styles';
 
@@ -16,6 +17,7 @@ export function About() {
             <General>
                 <ContainerImage  xs="12" sm="12" md="4" lg="4">
                     <Image src={Image1} />
+                    <Image src={Image2} />
                 </ContainerImage>
                 <ContainerDescription  xs="12" sm="12" md="8" lg="8">
                     <Row>

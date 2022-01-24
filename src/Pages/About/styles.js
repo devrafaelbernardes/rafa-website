@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Col, Row } from 'react-bootstrap';
+import Image from 'GeneralComponents/Image';
 
 export const Container = styled(Row)`
     padding: 0;
@@ -19,9 +20,14 @@ export const General = styled(Row)`
 
 export const ContainerImage = styled(Col)`
     display: flex;
+    flex-direction: column;
     align-items: center;
     margin: 0;
     padding: 0;
+
+    & > img{
+        margin-bottom: 24px;
+    }
 `;
 
 export const ContainerDescription = styled(Col)`
