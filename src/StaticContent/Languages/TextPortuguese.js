@@ -49,7 +49,7 @@ const TextPortuguese = {
     LOADING : 'Carregando',
     WORKSHOP : 'Workshops',
     COURSES : 'Cursos',
-    SOCIAL_NETWORK : 'Redes sociais',
+    SOCIAL_NETWORK : 'Links Úteis',
     CONTACT : 'Contato',
     ONLINE_STORE : 'Loja Online',
     CNPJ : 'CNPJ',
