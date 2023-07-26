@@ -5,7 +5,7 @@ export const URL_STORE = STORE;
 export const URL_COURSES = "https://cursos.rafaelbernardes.com";
 export const URL_BAGS = "https://www.lojarbernardes.com.br/bolsas-ct-311d9f";
 export const URL_MODELINGS =
-  "https://www.lojarbernardes.com.br/modelagens-ct-278491";
+  "https://cursos.rafaelbernardes.com/";
 export const URL_CONTACT = STORE + "contact.html";
 export const URL_WORKSHOP = STORE + "workshop-ct-257942";
 export const URL_DASHBOARD = isDevelopment
