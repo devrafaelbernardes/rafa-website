@@ -9,13 +9,13 @@ import Footer from 'Pages/Struct/Footer';
 
 import { RouterApp } from 'Routers';
 import { client as clientGraphql } from 'Rest/ConfigAPI';
-import Theme from 'styles/themes/Theme';
+import StylesTheme from 'styles/themes/Theme';
 import Global from 'styles/Global';
 
 function App() {
 	return (
 		<ApolloProvider client={clientGraphql}>
-			<ThemeProvider theme={Theme}>
+			<ThemeProvider theme={StylesTheme}>
 				<Router>
 					<Header />
 					<Body>
