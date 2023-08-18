@@ -20,8 +20,8 @@ export const ContainerMenu = styled(Row)`
 export const ContainerLogo = styled(Row)`
     padding: 0;
     justify-content: center;
-    margin-top: 10px;
-    margin-bottom: 15px;
+    margin-top: 0;
+    margin-bottom: 0;
     & > *{
         width: 100%;
         max-width: 300px;

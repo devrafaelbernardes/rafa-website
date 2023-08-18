@@ -1,3 +1,4 @@
+import React from 'react';
 import { CONTACT_DEVELOPER, DEVELOPER } from 'StaticContent/InfoSite';
 import Texts from 'StaticContent/Texts';
 import { Container, Copyright, DeveloperLink, InfoCompanyContainer } from './styles';
